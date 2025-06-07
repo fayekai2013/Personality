@@ -1,5 +1,5 @@
 // Type names and configurations
-const TYPE_NAMES = ["取悅者", "擁憂者", "證明者", "批評者", "迴避者", "殉道者"];
+const TYPE_NAMES = ["取悅者", "擔憂者", "證明者", "批評者", "迴避者", "殉道者"];
 const TYPE_NAMES_EN = ["Pleaser", "Worrier", "Prover", "Critic", "Avoider", "Martyr"];
 
 // Type descriptions for detailed analysis
@@ -9,7 +9,7 @@ const TYPE_DESCRIPTIONS = {
         motivation: "透過討好他人來獲得認可和接納",
         behaviors: "難以說不、隱藏真實想法、過度道歉",
         bestState: "善解人意、團隊協作能力強",
-        needsAttention: "自我價值過度依賴外界認可",
+        needsAttention: "自我價值過度依賴外在認可",
         guidance: "鼓勵表達真實想法，建立內在自信"
     },
     1: { // Worrier
@@ -33,7 +33,7 @@ const TYPE_DESCRIPTIONS = {
         motivation: "透過高標準來避免錯誤和失敗",
         behaviors: "自我批評、挑毛病、追求完美",
         bestState: "注重細節、品質意識高",
-        needsAttention: "完美主義導致拖延和自我打擊",
+        needsAttention: "完美主義導致拖延和自我批評",
         guidance: "學習接受'夠好'的標準，培養自我接納"
     },
     4: { // Avoider

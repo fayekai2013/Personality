@@ -267,26 +267,26 @@
                 "I believe that I am accountable for effective change management on my team."
             ],
             zh: [
-                "我經常與我的團隊溝通。我儘量以清晰透明的方式分享資訊，即使話題令人不快。",
-                "我相信，一旦人們理解並適應了變革，就不一定需要培訓了。",
-                "我鼓勵嘗試、學習新的做法和技術，並鼓勵我的團隊致力於不斷改進。",
-                "在制定變革計畫時，我會考慮我們的文化和價值觀，以及組織內已在進行的其他變革。",
-                "面對突如其來的變化，我希望人們能夠\"迎難而上\"。",
-                "我相信，如果員工已經對某個流程或系統感到不滿意或不滿，變革就更有可能取得成功。",
-                "我希望其他團隊和個人會詢問他們是否需要有關變革的說明或指導。",
-                "在規劃變革時，我會徵求並考慮那些將受到影響的人的想法。",
-                "我尋找所需的資料或資訊，以瞭解變革舉措的目的，並親自支援變革舉措。",
-                "在規劃變革專案時，我會考慮對人員和組織結構的影響。",
-                "我相信，如果公司的關鍵人物傳達出變革的必要性，其他人也會欣然接受並實施變革。",
-                "我能夠通過傳達令人信服的願景來激勵他人做出改變。",
-                "在有風險或不確定的情況下，我不太願意做計畫和決定。",
-                "在實施變革時，我會設定定期的小里程碑，讓團隊在取得進展的同時保持參與和動力。",
-                "當事情發生變化時，我一定會讓我的團隊看到並參與其中，為所期望的變化做出表率。",
-                "當我遇到變革的阻力或障礙時，我會向我的同伴尋求建議和指導，瞭解如何以最佳方式應對。",
-                "變革管理是變革管理專家的工作，而不是我的工作。",
-                "我能從各種不同的角度考慮一個想法。",
-                "我建立並使用內部（通常是非正式的）網路來共用資訊、收集資訊和測試想法。",
-                "我相信我有責任對我的團隊進行有效的變革管理。"
+                "我經常與團隊保持溝通，即使話題敏感，也會用清楚透明的方式主動分享訊息",
+                "我相信當大家理解並適應變革後，通常就不需要特別安排培訓",
+                "我鼓勵嘗試新做法和技術，並帶領團隊持續精進改善",
+                "規劃變革時，會考量組織文化價值觀與現有其他變動專案",
+                "面對突發變化時，我認為大家應該要「正面迎接挑戰」",
+                "當員工對現有流程系統不滿時，我認為正是推動變革的好時機",
+                "我預期其他團隊和同仁會主動詢問變革相關的說明需求",
+                "規劃變革時，我會徵求受影響者的意見並納入考量",
+                "我會主動蒐集資料，充分理解變革方案目的並全力支持",
+                "規劃變革專案時，會評估對人員編制和組織架構的影響",
+                "只要公司決策層明確傳達必要性，同仁自然會全力配合推動變革",
+                "我能透過具說服力的願景溝通，激勵團隊成員擁抱改變",
+                "面對風險或不確定性時，我會對制定計畫和做決定感到猶豫",
+                "推動變革時，會設定階段里程碑讓團隊保持參與感與動力",
+                "變革期間我會高度參與，親自示範期望的改變方向",
+                "遇到變革阻力時，我會徵詢同儕建議來制定最佳應對方式",
+                "變革管理應由專業人員負責，而非我的職責範圍",
+                "我能從多元角度全面評估各種構想",
+                "我建立內部人脈網絡來交流資訊、收集意見與測試想法",
+                "我認為自己需為團隊的變革管理成效負起全責"
             ]
         };
 
@@ -329,30 +329,45 @@
                         <span class="question-number">${index + 1}</span>
                         <p class="question-text">${question}</p>
                     </div>
-                    <div class="rating-options">
-                        ${[
-                            { value: 1, label: currentLang === 'en' ? 'Not at all like me' : '完全不像我' },
-                            { value: 2, label: currentLang === 'en' ? 'A little like me' : '有點像我' },
-                            { value: 3, label: currentLang === 'en' ? 'Somewhat like me' : '有些像我' },
-                            { value: 4, label: currentLang === 'en' ? 'Quite like me' : '很像我' },
-                            { value: 5, label: currentLang === 'en' ? 'Very much like me' : '非常像我' }
-                        ].map(option => `
-                            <label class="rating-option">
-                                <input type="radio" name="q${index}" value="${option.value}" required>
-                                <span class="rating-circle">
-                                    <span class="rating-text">${option.label}</span>
-                                </span>
-                            </label>
-                        `).join('')}
+                    <div class="rating-slider-container">
+                        <div class="slider-with-labels">
+                            <span class="slider-label-left">
+                                ${currentLang === 'en' ? 'Not at all like me' : '非常不像我'}
+                            </span>
+                            <div class="slider-wrapper">
+                                <input type="range" 
+                                       class="rating-slider" 
+                                       name="q${index}" 
+                                       min="1" 
+                                       max="5" 
+                                       step="1" 
+                                       required
+                                       data-question="${index}"
+                                       data-touched="false">
+                                <div class="slider-dots">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <span class="slider-label-right">
+                                ${currentLang === 'en' ? 'Very much like me' : '非常像我'}
+                            </span>
+                        </div>
                     </div>
                 `;
                 container.appendChild(questionDiv);
             });
 
             // Add event listeners for progress tracking
-            const radioButtons = container.querySelectorAll('input[type="radio"]');
-            radioButtons.forEach(radio => {
-                radio.addEventListener('change', () => {
+            const sliders = container.querySelectorAll('.rating-slider');
+            sliders.forEach(slider => {
+                slider.addEventListener('input', () => {
+                    // Mark as touched when user interacts
+                    slider.setAttribute('data-touched', 'true');
+                    slider.classList.add('touched');
                     updateProgressFromAnswers();
                 });
             });
@@ -360,10 +375,13 @@
 
         function updateProgressFromAnswers() {
             const answeredQuestions = new Set();
-            const radioButtons = document.querySelectorAll('#questionsContainer input[type="radio"]:checked');
+            const sliders = document.querySelectorAll('#questionsContainer .rating-slider');
             
-            radioButtons.forEach(radio => {
-                answeredQuestions.add(radio.name);
+            sliders.forEach(slider => {
+                // Only count if the user has actually touched the slider
+                if (slider.getAttribute('data-touched') === 'true') {
+                    answeredQuestions.add(slider.name);
+                }
             });
             
             currentProgress = answeredQuestions.size;
@@ -406,9 +424,9 @@
             const answers = [];
             const rawAnswers = [];
             for (let i = 0; i < totalQuestions; i++) {
-                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-                if (selectedOption) {
-                    const rawValue = parseInt(selectedOption.value);
+                const slider = document.querySelector(`input[name="q${i}"]`);
+                if (slider && slider.getAttribute('data-touched') === 'true') {
+                    const rawValue = parseInt(slider.value);
                     rawAnswers.push(rawValue);
                     
                     // Apply reverse scoring for specific questions (1-indexed in PDF, 0-indexed in code)
