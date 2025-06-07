@@ -307,18 +307,15 @@
 
         function updateProgress() {
             const progressNumber = document.getElementById('progressNumber');
-            const progressRing = document.getElementById('progressRing');
+            const progressBarFill = document.getElementById('progressBarFill');
             
             const percentage = Math.round((currentProgress / totalQuestions) * 100);
             
             // Update text
             progressNumber.textContent = currentProgress;
             
-            // Update circular progress bar
-            const circumference = 2 * Math.PI * 25; // radius is 25
-            const offset = circumference - (percentage / 100) * circumference;
-            progressRing.style.strokeDasharray = circumference;
-            progressRing.style.strokeDashoffset = offset;
+            // Update progress bar
+            progressBarFill.style.width = `${percentage}%`;
         }
 
         // Generate Questions
@@ -584,21 +581,20 @@
         });
     </script>
 
-    <!-- Floating Progress Indicator -->
+    <!-- Bottom Progress Status Bar -->
     <div id="progressIndicator" class="floating-progress">
-        <div class="progress-circle">
-            <svg class="progress-ring" width="60" height="60">
-                <circle class="progress-ring-background" cx="30" cy="30" r="25"></circle>
-                <circle class="progress-ring-progress" cx="30" cy="30" r="25" id="progressRing"></circle>
-            </svg>
-            <div class="progress-text">
+        <div class="progress-info">
+            <span class="progress-label">
+                <span class="text-en">Progress:</span>
+                <span class="text-zh" style="display: none;">進度：</span>
+            </span>
+            <span class="progress-count">
                 <span id="progressNumber">0</span>
                 <span class="progress-total">/20</span>
-            </div>
+            </span>
         </div>
-        <div class="progress-label-text">
-            <span class="text-en">Progress</span>
-            <span class="text-zh" style="display: none;">進度</span>
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
         </div>
     </div>
 </body>
