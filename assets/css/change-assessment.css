@@ -642,8 +642,7 @@ body {
 .rating-options {
     display: flex;
     justify-content: space-between;
-    gap: var(--space-md);
-    align-items: flex-start;
+    gap: 8px;
 }
 
 .rating-option {
@@ -651,6 +650,14 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    color: #667085;
+    transition: all 0.2s ease;
+}
+
+.rating-option:hover {
+    background-color: #F9FAFB;
+    border-color: #D0D5DD;
+    transform: translateY(-2px);
 }
 
 .rating-option input[type="radio"] {
@@ -1203,5 +1210,26 @@ body {
         width: 100%;
         max-width: 300px;
         justify-content: center;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .rating-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .rating-option {
+        width: 90%;
+        max-width: 400px;
+        flex-basis: auto;
+    }
+    
+    .rating-label .rating-text {
+        font-size: 14px;
+        min-height: 0;
+        text-align: center;
     }
 }
