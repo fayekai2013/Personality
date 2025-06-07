@@ -539,19 +539,84 @@
                 zh: ['取悅者', '擔憂者', '證明者', '批評者', '迴避者', '殉道者']
             };
             
+            // Enhanced type descriptions matching results.js structure
+            const typeDescriptions = {
+                0: { // Pleaser
+                    fear_en: "not being liked or accepted",
+                    fear_zh: "不被喜歡或接納",
+                    motivation_en: "seeking approval and acceptance through pleasing others",
+                    motivation_zh: "透過討好他人來獲得認可和接納",
+                    bestState_en: "empathetic team player with strong collaborative abilities",
+                    bestState_zh: "善解人意、團隊協作能力強",
+                    guidance_en: "practice expressing authentic thoughts and building inner confidence",
+                    guidance_zh: "練習表達真實想法，建立內在自信"
+                },
+                1: { // Worrier
+                    fear_en: "uncertainty and unpredictability",
+                    fear_zh: "不確定性和不可預測性",
+                    motivation_en: "controlling risk through over-analysis and excessive preparation",
+                    motivation_zh: "透過過度分析和準備來控制風險",
+                    bestState_en: "thoughtful planner with strong risk assessment skills",
+                    bestState_zh: "謹慎思考、風險評估能力強",
+                    guidance_en: "learn to embrace uncertainty and develop action-oriented confidence",
+                    guidance_zh: "學習接受不確定性，培養行動導向的自信"
+                },
+                2: { // Prover
+                    fear_en: "being seen as incompetent or inadequate",
+                    fear_zh: "被視為無能或不足",
+                    motivation_en: "building self-worth through achievements and performance",
+                    motivation_zh: "透過成就和表現來建立自我價值",
+                    bestState_en: "goal-oriented achiever with strong execution abilities",
+                    bestState_zh: "目標導向、執行力強的成就者",
+                    guidance_en: "learn to accept help and value process over pure results",
+                    guidance_zh: "學習接受幫助，重視過程而非只看結果"
+                },
+                3: { // Critic
+                    fear_en: "imperfection and making mistakes",
+                    fear_zh: "不完美和犯錯",
+                    motivation_en: "avoiding errors and failure through high standards",
+                    motivation_zh: "透過高標準來避免錯誤和失敗",
+                    bestState_en: "detail-oriented perfectionist with high quality standards",
+                    bestState_zh: "注重細節、品質意識高的完美主義者",
+                    guidance_en: "learn to accept 'good enough' standards and practice self-acceptance",
+                    guidance_zh: "學習接受'夠好'的標準，培養自我接納"
+                },
+                4: { // Avoider
+                    fear_en: "conflict and potential failure",
+                    fear_zh: "衝突和潛在失敗",
+                    motivation_en: "avoiding discomfort and responsibility through withdrawal",
+                    motivation_zh: "透過逃避來避免不適和責任",
+                    bestState_en: "harmony-seeking peacemaker who avoids unnecessary conflict",
+                    bestState_zh: "追求和諧、避免不必要衝突的和事佬",
+                    guidance_en: "break problems into manageable steps and build success experiences",
+                    guidance_zh: "將問題分解為可管理的步驟，建立成功經驗"
+                },
+                5: { // Martyr
+                    fear_en: "being selfish or self-centered",
+                    fear_zh: "自私或以自我為中心",
+                    motivation_en: "gaining moral superiority through self-sacrifice",
+                    motivation_zh: "透過犧牲自己來獲得道德優越感",
+                    bestState_en: "helpful and responsible with strong service orientation",
+                    bestState_zh: "樂於助人、責任感強，具有強烈的服務導向",
+                    guidance_en: "learn to set healthy boundaries and balance giving with receiving",
+                    guidance_zh: "學習設定健康界限，平衡付出與接受"
+                }
+            };
+
             const resultCategory = typeNames[currentLang][dominantTypeIndex];
+            const typeDesc = typeDescriptions[dominantTypeIndex];
+            
             const resultDescription = currentLang === 'en' ? 
-                `Your dominant behavioral pattern is ${resultCategory} with ${maxScore}% tendency. This indicates your primary psychological approach to challenges and relationships.` :
-                `您的主要行為模式是${resultCategory}，傾向度為${maxScore}%。這顯示了您面對挑戰和人際關係的主要心理方式。`;
+                `Your dominant behavioral pattern is ${resultCategory} with ${maxScore}% tendency. This pattern is driven by a core fear of ${typeDesc.fear_en}, leading to ${typeDesc.motivation_en}. At your best, you are ${typeDesc.bestState_en}. For growth, focus on: ${typeDesc.guidance_en}` :
+                `您的主要行為模式是${resultCategory}，傾向度為${maxScore}%。此模式源於對${typeDesc.fear_zh}的核心恐懼，導致${typeDesc.motivation_zh}。在最佳狀態下，您是${typeDesc.bestState_zh}。成長建議：${typeDesc.guidance_zh}`;
             
             // Prepare email content
             const emailContent = `
                 Student Name: ${studentName}
-                Assessment: Personality Behavior Pattern Assessment
+                Assessment: Personality Behavior Pattern
                 Completion Date: ${new Date().toLocaleString()}
                 
                 Results Summary:
-                Total Score: ${totalScore}/${totalQuestions * 5}
                 Dominant Type: ${resultCategory} (${maxScore}%)
                 
                 Type Breakdown:
