@@ -437,8 +437,7 @@
                 }
             });
             
-            // Calculate results
-            const averageScore = (totalScore / totalQuestions).toFixed(2);
+
             
             // Determine result category based on score ranges from assessment document
             let resultCategory, resultDescription;
@@ -467,7 +466,6 @@
                 
                 Results Summary:
                 Total Score: ${totalScore}/${totalQuestions * 5}
-                Average Score: ${averageScore}/5.0
                 Result Category: ${resultCategory}
                 
                 Description: ${resultDescription}
@@ -487,7 +485,6 @@
                     studentName,
                     testType: 'Change Ability Assessment',
                     totalScore,
-                    averageScore,
                     resultCategory,
                     resultDescription,
                     answers: answers,        // scored answers
@@ -518,8 +515,8 @@
                             
                         // Results section
                         results_title: currentLang === 'en' ? "Your Assessment Results" : "您的評估結果",
-                        main_score: `${averageScore}/5.0`,
-                        score_label: currentLang === 'en' ? "Average Score" : "平均分數",
+                        main_score: `${totalScore}`,
+                        score_label: currentLang === 'en' ? "Total Score" : "總分",
                         result_category: resultCategory,
                         result_description: resultDescription,
                         
@@ -536,8 +533,8 @@
                         disclaimer_text: currentLang === 'en' ? 
                             "This assessment is designed for educational and self-development purposes. Results should be used as a guide for personal reflection and growth." :
                             "此評估用於教育和自我發展目的。結果應作為個人反思和成長的指南。",
-                        footer_brand: currentLang === 'en' ? "Personality Assessment Team" : "人格評估測試團隊",
-                        footer_subtitle: currentLang === 'en' ? "Professional Psychological Evaluation" : "專業心理評估",
+                        footer_brand: currentLang === 'en' ? "Digitas Taiwan" : "Digitas 團隊",
+                        footer_subtitle: currentLang === 'en' ? "Personal Evaluation" : "個人評估",
                         breakdown_section: "" // Empty for change assessment
                     };
                     
