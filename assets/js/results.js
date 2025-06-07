@@ -112,14 +112,12 @@ function displayDetailedResults(results) {
         percentageFill.style.width = `${percentage}%`;
         percentageText.textContent = `${percentage}%`;
         
-        // Apply color coding based on percentage
-        const colorClass = getColorClass(percentage);
-        percentageFill.className = `percentage-fill ${colorClass}`;
+        // Set basic styling without color coding
+        percentageFill.className = 'percentage-fill';
         
-        // Color the text as well for high percentages
+        // Bold text for higher percentages
         if (percentage >= 60) {
             percentageText.style.fontWeight = 'bold';
-            percentageText.style.color = getTextColor(percentage);
         }
         
         // Add detailed description tooltip or expanded info
@@ -130,19 +128,7 @@ function displayDetailedResults(results) {
     });
 }
 
-function getColorClass(percentage) {
-    if (percentage >= 70) return 'high';
-    if (percentage >= 60) return 'obvious';
-    if (percentage >= 50) return 'moderate';
-    if (percentage >= 40) return 'low';
-    return 'very-low';
-}
 
-function getTextColor(percentage) {
-    if (percentage >= 70) return '#d32f2f';
-    if (percentage >= 60) return '#f57c00';
-    return '#333';
-}
 
 function addDetailedDescription(typeElement, typeIndex, percentage) {
     const description = TYPE_DESCRIPTIONS[typeIndex];
@@ -200,14 +186,7 @@ function downloadResults(results) {
         },
         詳細分數: {},
         百分比結果: {},
-        個別題目回答: results.answers,
-        色彩編碼說明: {
-            "🔴 70%+": "強烈傾向 (需重點關注)",
-            "🟠 60-69%": "明顯傾向 (需適當指導)", 
-            "🟡 50-59%": "中等傾向 (持續觀察)",
-            "🟢 40-49%": "較低傾向 (表現良好)",
-            "⚪ <40%": "很低傾向 (平衡狀態)"
-        }
+        個別題目回答: results.answers
     };
     
     // Add detailed scores and percentages
@@ -260,19 +239,11 @@ ${typeName} (${TYPE_NAMES_EN[index]}):
   指導建議: ${TYPE_DESCRIPTIONS[index].guidance}
 `).join('')}
 
-色彩編碼說明
------------
-🔴 70%+ 強烈傾向 (需重點關注)
-🟠 60-69% 明顯傾向 (需適當指導)
-🟡 50-59% 中等傾向 (持續觀察)
-🟢 40-49% 較低傾向 (表現良好)
-⚪ <40% 很低傾向 (平衡狀態)
-
 注意事項
 --------
 此評估結果僅供參考，不能替代專業心理諮詢。
 建議將結果作為自我認知和成長的起點。
-如需更深入的分析，請諮詢專業心理健康專家。
+如需更深入的分析，請諮詢專家協助。
     `.trim();
     
     const textBlob = new Blob([textContent], {type: 'text/plain;charset=utf-8'});

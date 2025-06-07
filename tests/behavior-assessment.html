@@ -245,134 +245,154 @@
         // High-Quality Behavior Assessment Questions with Traditional Chinese Translations
         const questions = {
             en: [
-                "I often worry about what others think of me.",
-                "I frequently second-guess my decisions.",
-                "I tend to avoid confrontation even when it's necessary.",
-                "I often feel the need to prove myself to others.",
-                "I have difficulty saying 'no' to requests.",
-                "I worry excessively about making mistakes.",
-                "I often feel responsible for other people's emotions.",
-                "I tend to procrastinate on important tasks.",
-                "I frequently compare myself to others.",
-                "I often feel like I'm not good enough.",
-                "I have trouble accepting compliments.",
-                "I tend to catastrophize situations.",
-                "I often feel overwhelmed by daily responsibilities.",
-                "I have difficulty expressing my true feelings.",
-                "I tend to put others' needs before my own.",
-                "I often feel guilty when I take time for myself.",
-                "I have trouble trusting my own judgment.",
-                "I frequently feel anxious in social situations.",
-                "I tend to avoid taking risks.",
-                "I often feel like I need to be perfect.",
-                "I have difficulty setting boundaries with others.",
-                "I tend to overthink situations.",
-                "I often feel like I'm disappointing others.",
-                "I have trouble asking for help when I need it.",
-                "I frequently feel stressed about things I cannot control.",
-                "I tend to be overly critical of myself.",
-                "I often feel like I'm not living up to my potential.",
-                "I have difficulty making decisions without seeking approval.",
-                "I tend to avoid difficult conversations.",
-                "I often feel responsible for fixing other people's problems.",
-                "I have trouble enjoying success because I worry about the future.",
-                "I frequently feel like I'm pretending to be someone I'm not.",
-                "I tend to minimize my own achievements.",
-                "I often feel anxious when I'm not busy or productive.",
-                "I have difficulty relaxing and enjoying the present moment.",
-                "I tend to focus more on my failures than my successes.",
-                "I often feel like I need external validation to feel worthy.",
-                "I have trouble believing that I deserve good things.",
-                "I frequently feel like I'm behind in life compared to others.",
-                "I tend to sacrifice my own happiness for others.",
-                "I often feel like I'm walking on eggshells around certain people.",
-                "I have difficulty expressing anger or frustration appropriately.",
-                "I tend to ruminate on past mistakes or embarrassing moments.",
-                "I often feel like I need to justify my choices to others.",
-                "I have trouble being vulnerable or opening up to others.",
-                "I frequently feel like I'm not smart or capable enough.",
-                "I tend to avoid situations where I might be judged.",
-                "I often feel like I'm carrying the weight of the world.",
-                "I have difficulty celebrating my accomplishments.",
-                "I tend to expect the worst-case scenario in most situations.",
-                "I often feel like I'm not deserving of love or respect.",
-                "I have trouble maintaining my energy and motivation over time.",
-                "I frequently feel like I need to hide my true self from others.",
-                "I tend to feel guilty about past decisions or actions.",
-                "I often feel like I'm not meeting others' expectations.",
-                "I have difficulty trusting that things will work out okay.",
-                "I tend to focus on what's wrong rather than what's right.",
-                "I often feel like I'm not in control of my own life.",
-                "I have trouble accepting that I can't please everyone.",
-                "I frequently feel overwhelmed by the expectations I place on myself."
+                // Pleaser
+                "I'm known for being flexible and accommodating to others' schedules and needs.",
+                "Before sharing my opinion, I consider how it might affect the feelings of others.",
+                "I'm good at finding common ground and expressing ideas in a way that resonates with people.",
+                "I feel a sense of accomplishment when I can create a positive and harmonious environment for everyone.",
+                "I'm open to reconsidering my views when presented with different perspectives from the group.",
+                "I enjoy being a team player and am always willing to step up and help where needed.",
+                "I often listen more than I speak, making sure everyone feels heard and valued.",
+                "I choose my words carefully to ensure my message is received in the most constructive way possible.",
+                "I'm quick to take responsibility to resolve misunderstandings and smooth things over.",
+                "I prioritize the group's overall happiness and success, even if it means making personal compromises.",
+                // Worrier
+                "I'm skilled at identifying potential risks and planning for contingencies.",
+                "I believe in being thorough and thinking through all potential outcomes before making a move.",
+                "I feel most comfortable when I have a clear plan and know what to expect.",
+                "I take decision-making very seriously, carefully weighing the pros and cons of each option.",
+                "My attention to detail means I often catch potential errors that others might miss.",
+                "I believe that careful risk assessment is the foundation of any successful project.",
+                "I perform best in stable environments where processes are well-defined.",
+                "I'm a proactive thinker, always considering future challenges and how to prepare for them.",
+                "I prefer to have a comprehensive plan in place before starting a new project.",
+                "I pride myself on being prepared for a wide range of situations.",
+                // Prover
+                "I am highly motivated by new challenges and opportunities to demonstrate my skills.",
+                "I have a strong sense of urgency and am focused on delivering results efficiently.",
+                "I believe that consistent high performance is the key to professional growth.",
+                "I take pride in my ability to handle difficult situations independently.",
+                "Once I complete a goal, I'm immediately eager to start on the next one.",
+                "I hold myself to a high standard of performance and always strive to go the extra mile.",
+                "I am very conscious of my professional image and strive to be seen as highly competent.",
+                "I find that tangible results and achievements are the most meaningful measure of success.",
+                "I'm driven to develop a wide range of skills to be effective in any situation.",
+                "I prefer to figure things out on my own before asking for assistance.",
+                // Critic
+                "I believe in setting high benchmarks for quality in any work I'm involved with.",
+                "I am driven by a desire to refine and improve things until they are the best they can be.",
+                "I have a talent for spotting potential problems or areas for improvement that others might overlook.",
+                "Even when a project is successful, I focus on the lessons learned for next time.",
+                "I have a strong sense of accountability and take errors very seriously.",
+                "I believe that constructive feedback is more valuable than simple praise.",
+                "I believe that attention to the smallest details is what separates good work from great work.",
+                "I operate with a clear sense of what is right and what needs to be done.",
+                "I am always thinking about how we can elevate our current performance to the next level.",
+                "I have a clear vision of excellence and am not easily satisfied with mediocrity.",
+                // Avoider
+                "I find that I'm most productive when a deadline is approaching.",
+                "I believe that many problems resolve themselves if given enough time.",
+                "When facing a major decision, I prefer to gather as much information as possible, even if it delays the outcome.",
+                "I tend to focus my energy on things I know I can change, rather than on large, complex situations.",
+                "Discussing the challenges of a situation helps me process it, even before I'm ready to act.",
+                "I often feel it's better to wait for the right opportunity to act rather than forcing a solution.",
+                "I value a team approach where the person best suited for a task takes the lead.",
+                "I believe maintaining group harmony is often more important than debating every single point.",
+                "I recognize that external factors often play a significant role in the outcome of a situation.",
+                "I prefer to choose a proven path to success, even if a riskier option might offer a higher reward.",
+                // Martyr
+                "I derive a great deal of satisfaction from supporting others and putting their needs first.",
+                "I prefer to handle things myself rather than burdening others with my requests.",
+                "I'm the person people turn to when they need someone to take on a difficult or time-consuming task.",
+                "I believe that rewards and personal time should come after my responsibilities are fully met.",
+                "Sometimes, I feel that my efforts and contributions are not fully appreciated by others.",
+                "I often give my all to a project or a person, without expecting anything in return.",
+                "I'm very generous with my time and energy, even when my own resources are low.",
+                "I have a strong sense of empathy and often feel responsible for the well-being of those around me.",
+                "I'm energized by helping others, although it can sometimes leave me feeling drained.",
+                "I believe that one of the most noble things a person can do is to dedicate themselves to the service of others."
             ],
             zh: [
-                "我常常擔心別人對我的看法",
-                "我經常質疑自己的決定",
-                "即使有必要，我也傾向避免衝突",
-                "我常覺得需要向他人證明自己",
-                "我難以拒絕別人的請求",
-                "我過度擔心自己會犯錯",
-                "我常為他人的情緒感到負責",
-                "我常會拖延處理重要任務",
-                "我經常拿自己和他人比較",
-                "我常覺得自己不夠好",
-                "我難以坦然接受讚美",
-                "我容易把情況想得過度嚴重",
-                "日常責任常讓我感到不堪重負",
-                "我很難表達內心真實感受",
-                "我傾向把他人需求放在自己之前",
-                "為自己安排時間時，我常感到內疚",
-                "我很難相信自己的判斷",
-                "在社交場合我經常感到焦慮",
-                "我傾向避免承擔風險",
-                "我常覺得自己必須做到完美",
-                "我難以設定明確的人際界線",
-                "我容易過度分析各種情況",
-                "我常覺得自己讓別人失望",
-                "需要幫助時，我難以開口求助",
-                "我常為無法控制的事情感到壓力",
-                "我對自己過度嚴苛",
-                "我常覺得自己沒發揮全部潛力",
-                "做決定時，我需要他人認可",
-                "我傾向迴避困難的對話",
-                "我常覺得該負責解決別人的問題",
-                "成功時，我因擔心未來而難以享受",
-                "我常覺得自己在假裝成別人",
-                "我傾向輕描淡寫自己的成就",
-                "無所事事時，我常感到焦慮",
-                "我難以放鬆享受當下時刻",
-                "我更容易關注失敗而非成功",
-                "我需要外在認可來感到有價值",
-                "我難以相信自己值得擁有美好事物",
-                "我常覺得自己的人生進度落後他人",
-                "我傾向犧牲自己的快樂成全他人",
-                "在某些人面前，我常覺得如履薄冰",
-                "我難以適當表達憤怒或挫折",
-                "我容易反芻過去的錯誤或尷尬",
-                "我常覺得需要為自己的選擇辯護",
-                "我難以在他人面前展現脆弱",
-                "我常覺得自己不夠聰明能幹",
-                "我傾向避免可能被評價的場合",
-                "我常覺得肩負過重責任",
-                "我難以真心為自己的成就開心",
-                "我傾向預想最糟的情況",
-                "我常覺得自己不配被愛或尊重",
-                "我難以長期維持動力與精力",
-                "我常隱藏真實的自我",
-                "我容易對過去的決定感到懊悔",
-                "我常覺得達不到他人的期望",
-                "我難以相信事情會自然好轉",
-                "我更容易關注問題而非優點",
-                "我常覺得無法掌控自己的人生",
-                "我難以接受無法讓所有人滿意",
-                "我常因自我要求過高感到壓力"
+                // Pleaser - 取悅者
+                "我以能夠靈活配合他人的時程和需求而聞名。",
+                "在分享我的意見之前，我會先考慮它可能對他人的感受產生什麼影響。",
+                "我擅長尋找共同點，並以能引起共鳴的方式表達想法。",
+                "當我能為大家創造一個正面和諧的環境時，我會很有成就感。",
+                "當團隊提出不同觀點時，我對重新考慮自己的看法持開放態度。",
+                "我樂於成為團隊的一份子，並且總是很願意在需要的地方挺身而出。",
+                "我通常聽得多說得少，以確保每個人都感覺被傾聽和重視。",
+                "我會謹慎選擇用詞，以確保我的訊息能以最具建設性的方式被接收。",
+                "我會很快地承擔責任，以化解誤會並讓事情圓滿。",
+                "我會優先考慮團隊整體的快樂與成功，即使這意味著需要做出個人妥協。",
+                // Worrier - 擔憂者
+                "我擅長識別潛在風險並為各種意外情況制定計畫。",
+                "我相信在行動前，應該要徹底思考所有可能的結果。",
+                "當我有明確的計畫並知道會發生什麼事時，我會感到最自在。",
+                "我非常嚴肅地對待決策，會仔細權衡每個選項的利弊。",
+                "我對細節的關注，意味著我經常能發現別人可能忽略的潛在錯誤。",
+                "我相信謹慎的風險評估是任何成功專案的基礎。",
+                "在流程定義明確的穩定環境中，我的表現最好。",
+                "我是一個積極思考者，總是在考慮未來的挑戰以及如何為之準備。",
+                "在開始一個新專案之前，我偏好先有一個周全的計畫。",
+                "我為自己能對各種情況都做好準備而感到自豪。",
+                // Prover - 證明者
+                "新的挑戰和能展示我技能的機會，總能激勵我。",
+                "我有強烈的急迫感，並專注於有效率地交付成果。",
+                "我相信持續的高績效是職業成長的關鍵。",
+                "我為自己能夠獨立處理困難情況的能力感到自豪。",
+                "一旦完成一個目標，我會立刻渴望開始下一個。",
+                "我對自己的表現有很高的標準，並且總是努力做到最好。",
+                "我非常在意我的專業形象，並努力讓自己被視為非常有能力。",
+                "我發現具體的成果和成就是最有意義的成功衡量標準。",
+                "我致力於發展多方面的技能，以便在任何情況下都能應付自如。",
+                "在尋求協助之前，我傾向於先自己想辦法解決問題。",
+                // Critic - 批評者
+                "我相信在我參與的任何工作中，都應該為品質設定高標準。",
+                "我被一種渴望驅動，想要不斷改進事物直到它們達到最佳狀態。",
+                "我有一種天賦，能發現別人可能忽略的潛在問題或可改進之處。",
+                "即使專案成功了，我還是會專注於為下一次記取教訓。",
+                "我有強烈的責任感，並非常嚴肅地看待錯誤。",
+                "我相信建設性的回饋比單純的讚美更有價值。",
+                "我相信對最小細節的關注，是區分「好」與「卓越」作品的關鍵。",
+                "我對什麼是正確的、什麼是需要完成的有清晰的認知。",
+                "我總是在思考如何將我們目前的表現提升到下一個層次。",
+                "我對卓越有清晰的願景，且不容易對平庸感到滿意。",
+                // Avoider - 迴避者
+                "我發現在截止日期快到時，我的工作效率最高。",
+                "我相信只要給予足夠的時間，許多問題會自行解決。",
+                "面對重大決定時，我寧願盡可能收集資訊，即使這會延後結果。",
+                "我傾向於將精力集中在我知道可以改變的事情上，而不是應對龐大複雜的局勢。",
+                "討論一個情況的挑戰有助於我消化它，即使我還沒準備好採取行動。",
+                "我常覺得等待適當的時機行動，比強行推出解決方案更好。",
+                "我重視團隊合作，由最適合的人來主導任務。",
+                "我相信維持團隊和諧，往往比爭論每一個觀點來得更重要。",
+                "我體認到外在因素常常在事情的結果中扮演重要角色。",
+                "我寧願選擇一條已經被證實的成功路徑，即使冒險可能帶來更高的回報。",
+                // Martyr - 殉道者
+                "我從支持他人並將他們的需​​求放在第一位中，獲得極大的滿足感。",
+                "我寧願自己處理事情，也不願因我的請求而給別人帶來負擔。",
+                "當人們需要有人承擔困難或耗時的任務時，他們會來找我。",
+                "我相信獎勵和個人時間，應該在我完全履行職責之後才到來。",
+                "有時候，我感覺到我的努力和貢獻沒有得到他人的充分賞識。",
+                "我經常為一個專案或一個人付出我的全部，而不期望任何回報。",
+                "即使在我自己的資源不足時，我對我的時間和精力也非常慷慨。",
+                "我有強烈的同理心，並時常對周遭的人的幸福感感到有責任。",
+                "幫助他人能給我帶來活力，儘管有時也會讓我感到精疲力竭。",
+                "我相信一個人能做的最高尚的事情之一，就是致力於為他人服務。"
             ]
         };
 
         // Progress Tracking
         let currentProgress = 0;
         const totalQuestions = 60;
+
+        // Create and shuffle the question order
+        const randomizedOrder = Array.from({ length: totalQuestions }, (_, i) => i);
+        // Fisher-Yates shuffle algorithm
+        for (let i = randomizedOrder.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [randomizedOrder[i], randomizedOrder[j]] = [randomizedOrder[j], randomizedOrder[i]];
+        }
 
         function updateProgress() {
             const progressNumber = document.getElementById('progressNumber');
@@ -398,30 +418,33 @@
             
             container.innerHTML = '';
             
-            questionSet.forEach((question, index) => {
+            randomizedOrder.forEach((originalIndex, i) => {
+                const question = questionSet[originalIndex];
                 const questionDiv = document.createElement('div');
                 questionDiv.className = 'question-item';
+                questionDiv.dataset.originalIndex = originalIndex; // Store original index
+
                 const labels = currentLang === 'en' ? 
                     ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'] :
                     ['從不', '很少', '有時', '經常', '總是'];
 
                 questionDiv.innerHTML = `
                     <div class="question-header">
-                        <span class="question-number">${index + 1}</span>
+                        <span class="question-number">${i + 1}</span>
                         <p class="question-text">${question}</p>
                     </div>
                     <div class="rating-container">
                         <div class="rating-options">
-                            ${labels.map((label, i) => `
+                            ${labels.map((label, value) => `
                                 <div class="rating-option">
                                     <input type="radio" 
-                                           id="q${index}_${i + 1}" 
-                                           name="q${index}" 
-                                           value="${i + 1}" 
+                                           id="q${i}_${value + 1}" 
+                                           name="q${i}" 
+                                           value="${value + 1}" 
                                            required
-                                           data-question="${index}">
-                                    <label for="q${index}_${i + 1}" class="rating-label">
-                                        <span class="rating-number">${i + 1}</span>
+                                           data-question="${i}">
+                                    <label for="q${i}_${value + 1}" class="rating-label">
+                                        <span class="rating-number">${value + 1}</span>
                                         <span class="rating-text">${label}</span>
                                     </label>
                                 </div>
@@ -491,21 +514,20 @@
             
             // Collect answers
             const answers = [];
-            for (let i = 0; i < totalQuestions; i++) {
-                const selectedRadio = document.querySelector(`input[name="q${i}"]:checked`);
-                if (selectedRadio) {
-                    answers.push(parseInt(selectedRadio.value));
-                }
-            }
-            
-            // Calculate behavioral pattern scores
             const typeScores = [0, 0, 0, 0, 0, 0]; // 6 personality types
             
-            // Distribute questions among 6 types (10 questions each)
-            for (let i = 0; i < totalQuestions; i++) {
-                const typeIndex = Math.floor(i / 10);
-                typeScores[typeIndex] += answers[i];
-            }
+            const questionItems = document.querySelectorAll('.question-item');
+            questionItems.forEach((q_item, i) => {
+                const selectedRadio = q_item.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedRadio) {
+                    const answerValue = parseInt(selectedRadio.value);
+                    answers.push(answerValue); // Store answer in display order
+
+                    const originalIndex = parseInt(q_item.dataset.originalIndex);
+                    const typeIndex = Math.floor(originalIndex / 10);
+                    typeScores[typeIndex] += answerValue;
+                }
+            });
             
             // Calculate percentages
             const typePercentages = typeScores.map(score => Math.round((score / 50) * 100));

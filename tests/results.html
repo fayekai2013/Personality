@@ -199,35 +199,7 @@
                     </div>
                 </div>
 
-                <!-- Color Legend -->
-                <div class="legend">
-                    <h3>
-                        <span class="text-en">📋 Color Coding Legend</span>
-                        <span class="text-zh" style="display: none;">📋 色彩編碼說明</span>
-                    </h3>
-                    <div class="legend-items">
-                        <div class="legend-item high">
-                                                    <span class="text-en">🔴 70%+ Strong tendency (needs focus)</span>
-                        <span class="text-zh" style="display: none;">🔴 70%+ 強烈傾向 (需積極處理)</span>
-                        </div>
-                        <div class="legend-item obvious">
-                            <span class="text-en">🟠 60-69% Obvious tendency (needs guidance)</span>
-                            <span class="text-zh" style="display: none;">🟠 60-69% 明顯傾向 (需適當指導)</span>
-                        </div>
-                        <div class="legend-item moderate">
-                            <span class="text-en">🟡 50-59% Moderate tendency (continue monitoring)</span>
-                            <span class="text-zh" style="display: none;">🟡 50-59% 中等傾向 (持續觀察)</span>
-                        </div>
-                        <div class="legend-item low">
-                            <span class="text-en">🟢 40-49% Lower tendency (performing well)</span>
-                            <span class="text-zh" style="display: none;">🟢 40-49% 較低傾向 (表現良好)</span>
-                        </div>
-                        <div class="legend-item very-low">
-                            <span class="text-en">⚪ <40% Very low tendency (balanced state)</span>
-                            <span class="text-zh" style="display: none;">⚪ <40% 很低傾向 (平衡狀態)</span>
-                        </div>
-                    </div>
-                </div>
+                
             </section>
 
             <!-- Action Buttons -->
@@ -265,11 +237,27 @@
     </div>
 
     <script>
-        // Language Toggle Functionality
+        // Language Toggle Functionality with persistence
         function initializeLanguageToggle() {
+            // Get language preference from sessionStorage
+            const savedLang = sessionStorage.getItem('selectedLanguage') || 'en';
+            
             const langButtons = document.querySelectorAll('.lang-btn');
             const enElements = document.querySelectorAll('.text-en');
             const zhElements = document.querySelectorAll('.text-zh');
+            
+            // Apply saved language immediately
+            if (savedLang === 'zh') {
+                langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === 'zh'));
+                enElements.forEach(el => el.style.display = 'none');
+                zhElements.forEach(el => el.style.display = '');
+                document.documentElement.lang = 'zh-TW';
+            } else {
+                langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === 'en'));
+                enElements.forEach(el => el.style.display = '');
+                zhElements.forEach(el => el.style.display = 'none');
+                document.documentElement.lang = 'en';
+            }
             
             langButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -278,6 +266,9 @@
                     // Update button states
                     langButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
+                    
+                    // Save language preference
+                    sessionStorage.setItem('selectedLanguage', lang);
                     
                     // Toggle language visibility
                     if (lang === 'en') {
