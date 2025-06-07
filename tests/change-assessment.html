@@ -329,32 +329,40 @@
                         <span class="question-number">${index + 1}</span>
                         <p class="question-text">${question}</p>
                     </div>
-                    <div class="rating-slider-container">
-                        <div class="slider-with-labels">
-                            <span class="slider-label-left">
-                                ${currentLang === 'en' ? 'Not at all like me' : '非常不像我'}
-                            </span>
-                            <div class="slider-wrapper">
-                                <input type="range" 
-                                       class="rating-slider" 
-                                       name="q${index}" 
-                                       min="1" 
-                                       max="5" 
-                                       step="1" 
-                                       required
-                                       data-question="${index}"
-                                       data-touched="false">
-                                <div class="slider-dots">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="q${index}_1" name="q${index}" value="1" required data-question="${index}">
+                                <label for="q${index}_1" class="rating-label">
+                                    <span class="rating-number">1</span>
+                                    <span class="rating-text">${currentLang === 'en' ? 'Not at all like me' : '非常不像我'}</span>
+                                </label>
                             </div>
-                            <span class="slider-label-right">
-                                ${currentLang === 'en' ? 'Very much like me' : '非常像我'}
-                            </span>
+                            <div class="rating-option">
+                                <input type="radio" id="q${index}_2" name="q${index}" value="2" required data-question="${index}">
+                                <label for="q${index}_2" class="rating-label">
+                                    <span class="rating-number">2</span>
+                                </label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="q${index}_3" name="q${index}" value="3" required data-question="${index}">
+                                <label for="q${index}_3" class="rating-label">
+                                    <span class="rating-number">3</span>
+                                </label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="q${index}_4" name="q${index}" value="4" required data-question="${index}">
+                                <label for="q${index}_4" class="rating-label">
+                                    <span class="rating-number">4</span>
+                                </label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="q${index}_5" name="q${index}" value="5" required data-question="${index}">
+                                <label for="q${index}_5" class="rating-label">
+                                    <span class="rating-number">5</span>
+                                    <span class="rating-text">${currentLang === 'en' ? 'Very much like me' : '非常像我'}</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -362,12 +370,9 @@
             });
 
             // Add event listeners for progress tracking
-            const sliders = container.querySelectorAll('.rating-slider');
-            sliders.forEach(slider => {
-                slider.addEventListener('input', () => {
-                    // Mark as touched when user interacts
-                    slider.setAttribute('data-touched', 'true');
-                    slider.classList.add('touched');
+            const radioButtons = container.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', () => {
                     updateProgressFromAnswers();
                 });
             });
@@ -375,13 +380,10 @@
 
         function updateProgressFromAnswers() {
             const answeredQuestions = new Set();
-            const sliders = document.querySelectorAll('#questionsContainer .rating-slider');
+            const radioButtons = document.querySelectorAll('#questionsContainer input[type="radio"]:checked');
             
-            sliders.forEach(slider => {
-                // Only count if the user has actually touched the slider
-                if (slider.getAttribute('data-touched') === 'true') {
-                    answeredQuestions.add(slider.name);
-                }
+            radioButtons.forEach(radio => {
+                answeredQuestions.add(radio.name);
             });
             
             currentProgress = answeredQuestions.size;
@@ -424,9 +426,9 @@
             const answers = [];
             const rawAnswers = [];
             for (let i = 0; i < totalQuestions; i++) {
-                const slider = document.querySelector(`input[name="q${i}"]`);
-                if (slider && slider.getAttribute('data-touched') === 'true') {
-                    const rawValue = parseInt(slider.value);
+                const checkedRadio = document.querySelector(`input[name="q${i}"]:checked`);
+                if (checkedRadio) {
+                    const rawValue = parseInt(checkedRadio.value);
                     rawAnswers.push(rawValue);
                     
                     // Apply reverse scoring for specific questions (1-indexed in PDF, 0-indexed in code)

@@ -634,140 +634,84 @@ body {
     font-weight: 500;
 }
 
-.rating-slider-container {
-    padding: var(--space-lg) 0;
+/* Rating Container */
+.rating-container {
+    padding: var(--space-xl) 0;
 }
 
-/* For behavior assessment with all 5 labels */
-.slider-labels {
+.rating-options {
     display: flex;
     justify-content: space-between;
-    margin-bottom: var(--space-lg);
-    padding: 0 var(--space-sm);
+    gap: var(--space-md);
+    align-items: flex-start;
+}
+
+.rating-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
 }
 
-.slider-label {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-align: center;
-    line-height: 1.3;
-    position: absolute;
-    transform: translateX(-50%);
-    width: auto;
-    white-space: nowrap;
+.rating-option input[type="radio"] {
+    display: none;
 }
 
-.slider-label:nth-child(1) { left: 0%; }
-.slider-label:nth-child(2) { left: 25%; }
-.slider-label:nth-child(3) { left: 50%; }
-.slider-label:nth-child(4) { left: 75%; }
-.slider-label:nth-child(5) { left: 100%; }
+.rating-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+}
 
-.slider-with-labels {
+.rating-label:hover {
+    background: var(--gray-50);
+    transform: translateY(-2px);
+}
+
+.rating-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    color: var(--gray-600);
     display: flex;
     align-items: center;
-    gap: var(--space-lg);
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: var(--space-sm);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
-.slider-label-left,
-.slider-label-right {
-    font-size: 1rem;
+.rating-text {
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--gray-700);
     text-align: center;
-    flex: 0 0 auto;
-    width: 120px;
-    line-height: 1.4;
+    line-height: 1.3;
+    max-width: 80px;
 }
 
-.slider-wrapper {
-    position: relative;
-    padding: var(--space-lg) var(--space-sm);
-    flex: 1;
-}
-
-.rating-slider {
-    width: 100%;
-    height: 6px;
-    border-radius: 3px;
-    background: var(--gray-200);
-    outline: none;
-    appearance: none;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.rating-slider.touched {
-    opacity: 1;
-}
-
-.rating-slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--gray-300);
-    cursor: pointer;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-}
-
-.rating-slider.touched::-webkit-slider-thumb {
+/* Selected state */
+.rating-option input[type="radio"]:checked + .rating-label .rating-number {
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    color: white;
     box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
 }
 
-.rating-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: var(--shadow-lg);
+.rating-option input[type="radio"]:checked + .rating-label {
+    background: linear-gradient(135deg, var(--gray-50), white);
 }
 
-.rating-slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--gray-300);
-    cursor: pointer;
-    border: none;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-}
-
-.rating-slider.touched::-moz-range-thumb {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-    box-shadow: var(--shadow-md);
-}
-
-.rating-slider::-moz-range-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: var(--shadow-lg);
-}
-
-.slider-dots {
-    position: absolute;
-    top: 50%;
-    left: var(--space-sm);
-    right: var(--space-sm);
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-    z-index: 3;
-}
-
-.slider-dots .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--gray-400);
-    transition: background 0.3s ease;
-    border: 2px solid white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+.rating-option input[type="radio"]:checked + .rating-label .rating-text {
+    color: var(--gray-800);
+    font-weight: 600;
 }
 
 /* Submit Section */
@@ -943,15 +887,19 @@ body {
         padding: var(--space-xl);
     }
     
-    .slider-with-labels {
-        flex-direction: column;
-        gap: var(--space-md);
+    .rating-options {
+        gap: var(--space-sm);
     }
     
-    .slider-label-left,
-    .slider-label-right {
-        font-size: 0.9rem;
-        width: auto;
+    .rating-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .rating-text {
+        font-size: 0.65rem;
+        max-width: 70px;
     }
     
     /* Behavior assessment labels on mobile */
