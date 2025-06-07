@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Communication Style Assessment | 個人溝通風格評估</title>
+    <meta name="description" content="Professional assessment to identify your primary communication patterns and behavioral tendencies in interpersonal interactions.">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/change-assessment.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    <div class="assessment-container">
+        <!-- Navigation Header -->
+        <nav class="nav-header">
+            <a href="../index.html" class="logo">
+                <span class="text-en">Explore Yourself</span>
+                <span class="text-zh" style="display: none;">探索自我</span>
+            </a>
+            <div class="nav-meta">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                </div>
+                <a href="../index.html" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-en">Back to Home</span>
+                    <span class="text-zh" style="display: none;">回到首頁</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Assessment Header -->
+        <header class="assessment-header">
+            <div class="header-content">
+                <div class="assessment-icon">🧠</div>
+                <h1 class="assessment-title">
+                    <span class="text-en">Your Authentic Communication Style</span>
+                    <span class="text-zh" style="display: none;">您真實的溝通風格</span>
+                </h1>
+                <p class="assessment-subtitle">
+                    <span class="text-en">Discover the beautiful way you connect with the world around you</span>
+                    <span class="text-zh" style="display: none;">發現您與周圍世界連結的美好方式</span>
+                </p>
+                
+                <div class="assessment-info">
+                    <div class="info-stat">
+                        <span class="stat-number">60</span>
+                        <span class="stat-label">
+                            <span class="text-en">Questions</span>
+                            <span class="text-zh" style="display: none;">題目</span>
+                        </span>
+                    </div>
+                    <div class="info-stat">
+                        <span class="stat-number">8-12</span>
+                        <span class="stat-label">
+                            <span class="text-en">Minutes</span>
+                            <span class="text-zh" style="display: none;">分鐘</span>
+                        </span>
+                    </div>
+                    <div class="info-stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">
+                            <span class="text-en">Types</span>
+                            <span class="text-zh" style="display: none;">類型</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Instructions Panel -->
+        <section class="instructions-panel">
+            <div class="instructions-content">
+                <h3 class="instructions-title">
+                    <span class="text-en">🌸 Welcome to Your Journey</span>
+                    <span class="text-zh" style="display: none;">🌸 歡迎來到您的旅程</span>
+                </h3>
+                
+                <div class="instructions-text">
+                    <div class="text-en">
+                        <p>Welcome to a gentle exploration of who you are. Each question is an invitation to reflect on your natural way of being in the world. Trust what feels true for you - there's no right or wrong, only the beautiful uniqueness that is you.</p>
+                    </div>
+                    <div class="text-zh" style="display: none;">
+                        <p>歡迎來到溫和的自我探索。每個問題都是邀請您反思在世界中自然存在的方式。相信對您來說感覺真實的東西——沒有對錯，只有屬於您的美麗獨特性。</p>
+                    </div>
+                </div>
+                
+                <div class="scale-explanation">
+                    <h4>
+                        <span class="text-en">Rating Scale:</span>
+                        <span class="text-zh" style="display: none;">評分標準：</span>
+                    </h4>
+                    <div class="scale-grid">
+                        <div class="scale-item">
+                            <div class="scale-number">1</div>
+                            <div class="scale-text">
+                                <span class="text-en">Never / Completely disagree</span>
+                                <span class="text-zh" style="display: none;">從不 / 完全不符合</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <div class="scale-number">2</div>
+                            <div class="scale-text">
+                                <span class="text-en">Rarely / Slightly agree</span>
+                                <span class="text-zh" style="display: none;">很少 / 輕微符合</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <div class="scale-number">3</div>
+                            <div class="scale-text">
+                                <span class="text-en">Sometimes / Partially agree</span>
+                                <span class="text-zh" style="display: none;">有時 / 部分符合</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <div class="scale-number">4</div>
+                            <div class="scale-text">
+                                <span class="text-en">Often / Mostly agree</span>
+                                <span class="text-zh" style="display: none;">經常 / 大部分符合</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <div class="scale-number">5</div>
+                            <div class="scale-text">
+                                <span class="text-en">Always / Completely agree</span>
+                                <span class="text-zh" style="display: none;">總是 / 完全符合</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important-notes">
+                    <div class="note-item">
+                        <span class="note-icon">💡</span>
+                        <span class="text-en">Trust your first instinct - it's usually the most authentic</span>
+                        <span class="text-zh" style="display: none;">相信您的第一直覺，通常是最真實的</span>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-icon">🌈</span>
+                        <span class="text-en">Every answer is valid - this is about discovering your unique style</span>
+                        <span class="text-zh" style="display: none;">每個答案都是有效的，這是為了發現您獨特的風格</span>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-icon">🎁</span>
+                        <span class="text-en">Your personalized insights will be delivered to your email</span>
+                        <span class="text-zh" style="display: none;">您的個人化洞察將發送到您的電子郵件</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Form -->
+        <main class="assessment-main">
+            <form id="assessmentForm" class="assessment-form">
+                <!-- Name Input Section -->
+                <div class="name-input-section">
+                    <div class="input-group">
+                        <label for="studentName" class="input-label">
+                            <span class="label-icon">👤</span>
+                            <span class="text-en">Your Full Name</span>
+                            <span class="text-zh" style="display: none;">您的真實姓名</span>
+                            <span class="required-mark">*</span>
+                        </label>
+                        <input type="text" id="studentName" name="studentName" required 
+                               class="name-input"
+                               placeholder="Enter your full name / 請輸入您的真實姓名">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="studentEmail" class="input-label">
+                            <span class="label-icon">📧</span>
+                            <span class="text-en">Your Email Address</span>
+                            <span class="text-zh" style="display: none;">您的電子郵件地址</span>
+                            <span class="required-mark">*</span>
+                        </label>
+                        <input type="email" id="studentEmail" name="studentEmail" required 
+                               class="name-input"
+                               placeholder="Enter your email / 請輸入您的電子郵件">
+                    </div>
+                </div>
+
+
+
+                <!-- Questions Container -->
+                <div id="questionsContainer" class="questions-container">
+                    <!-- Questions will be populated by JavaScript -->
+                </div>
+
+                <!-- Submit Section -->
+                <div class="submit-section">
+                    <button type="submit" id="submitBtn" class="submit-button" disabled>
+                        <span class="button-content">
+                            <span class="button-icon">✨</span>
+                            <span class="button-text">
+                                <span class="text-en">Reveal My Authentic Self</span>
+                                <span class="text-zh" style="display: none;">揭示真實的自我</span>
+                            </span>
+                        </span>
+                        <div class="button-shine"></div>
+                    </button>
+                    
+                    <p class="submit-note">
+                        <span class="text-en">Your personalized insights will arrive in your inbox moments after completion</span>
+                        <span class="text-zh" style="display: none;">您的個人化洞察將在完成後立即發送到您的收件箱</span>
+                    </p>
+                </div>
+            </form>
+        </main>
+
+        <!-- Fixed Scale Reference -->
+        <div class="scale-reference" id="scaleReference">
+            <div class="scale-content">
+                <div class="scale-title">
+                    <span class="text-en">Quick Reference</span>
+                    <span class="text-zh" style="display: none;">快速參考</span>
+                </div>
+                <div class="scale-items">
+                    <span class="scale-quick-item">1 = <span class="text-en">Never</span><span class="text-zh" style="display: none;">從不</span></span>
+                    <span class="scale-quick-item">3 = <span class="text-en">Sometimes</span><span class="text-zh" style="display: none;">有時</span></span>
+                    <span class="scale-quick-item">5 = <span class="text-en">Always</span><span class="text-zh" style="display: none;">總是</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init("I2KqoGsE81K29GmFC");
+
+        // Language Toggle Functionality with inheritance from homepage
+        function initializeLanguageToggle() {
+            // Get language preference from sessionStorage (set by language selection)
+            const savedLang = sessionStorage.getItem('selectedLanguage') || 'en';
+            
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const enElements = document.querySelectorAll('.text-en');
+            const zhElements = document.querySelectorAll('.text-zh');
+            
+            // Apply saved language immediately
+            if (savedLang === 'zh') {
+                langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === 'zh'));
+                enElements.forEach(el => el.style.display = 'none');
+                zhElements.forEach(el => el.style.display = '');
+                document.documentElement.lang = 'zh-TW';
+                updatePlaceholders('zh');
+            } else {
+                langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === 'en'));
+                enElements.forEach(el => el.style.display = '');
+                zhElements.forEach(el => el.style.display = 'none');
+                document.documentElement.lang = 'en';
+                updatePlaceholders('en');
+            }
+            
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.dataset.lang;
+                    
+                    // Update button states
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Save language preference for current session
+                    sessionStorage.setItem('selectedLanguage', lang);
+                    
+                    // Toggle language visibility
+                    if (lang === 'en') {
+                        enElements.forEach(el => el.style.display = '');
+                        zhElements.forEach(el => el.style.display = 'none');
+                        document.documentElement.lang = 'en';
+                        updatePlaceholders('en');
+                    } else {
+                        enElements.forEach(el => el.style.display = 'none');
+                        zhElements.forEach(el => el.style.display = '');
+                        document.documentElement.lang = 'zh-TW';
+                        updatePlaceholders('zh');
+                    }
+                    
+                    // Regenerate questions in the new language
+                    generateQuestions();
+                });
+            });
+        }
+
+        function updatePlaceholders(lang) {
+            const nameInput = document.getElementById('studentName');
+            const emailInput = document.getElementById('studentEmail');
+            if (lang === 'en') {
+                nameInput.placeholder = 'Enter your full name';
+                emailInput.placeholder = 'Enter your email address';
+            } else {
+                nameInput.placeholder = '請輸入您的真實姓名';
+                emailInput.placeholder = '請輸入您的電子郵件';
+            }
+        }
+
+        // High-Quality Behavior Assessment Questions with Traditional Chinese Translations
+        const questions = {
+            en: [
+                "I often worry about what others think of me.",
+                "I frequently second-guess my decisions.",
+                "I tend to avoid confrontation even when it's necessary.",
+                "I often feel the need to prove myself to others.",
+                "I have difficulty saying 'no' to requests.",
+                "I worry excessively about making mistakes.",
+                "I often feel responsible for other people's emotions.",
+                "I tend to procrastinate on important tasks.",
+                "I frequently compare myself to others.",
+                "I often feel like I'm not good enough.",
+                "I have trouble accepting compliments.",
+                "I tend to catastrophize situations.",
+                "I often feel overwhelmed by daily responsibilities.",
+                "I have difficulty expressing my true feelings.",
+                "I tend to put others' needs before my own.",
+                "I often feel guilty when I take time for myself.",
+                "I have trouble trusting my own judgment.",
+                "I frequently feel anxious in social situations.",
+                "I tend to avoid taking risks.",
+                "I often feel like I need to be perfect.",
+                "I have difficulty setting boundaries with others.",
+                "I tend to overthink situations.",
+                "I often feel like I'm disappointing others.",
+                "I have trouble asking for help when I need it.",
+                "I frequently feel stressed about things I cannot control.",
+                "I tend to be overly critical of myself.",
+                "I often feel like I'm not living up to my potential.",
+                "I have difficulty making decisions without seeking approval.",
+                "I tend to avoid difficult conversations.",
+                "I often feel responsible for fixing other people's problems.",
+                "I have trouble enjoying success because I worry about the future.",
+                "I frequently feel like I'm pretending to be someone I'm not.",
+                "I tend to minimize my own achievements.",
+                "I often feel anxious when I'm not busy or productive.",
+                "I have difficulty relaxing and enjoying the present moment.",
+                "I tend to focus more on my failures than my successes.",
+                "I often feel like I need external validation to feel worthy.",
+                "I have trouble believing that I deserve good things.",
+                "I frequently feel like I'm behind in life compared to others.",
+                "I tend to sacrifice my own happiness for others.",
+                "I often feel like I'm walking on eggshells around certain people.",
+                "I have difficulty expressing anger or frustration appropriately.",
+                "I tend to ruminate on past mistakes or embarrassing moments.",
+                "I often feel like I need to justify my choices to others.",
+                "I have trouble being vulnerable or opening up to others.",
+                "I frequently feel like I'm not smart or capable enough.",
+                "I tend to avoid situations where I might be judged.",
+                "I often feel like I'm carrying the weight of the world.",
+                "I have difficulty celebrating my accomplishments.",
+                "I tend to expect the worst-case scenario in most situations.",
+                "I often feel like I'm not deserving of love or respect.",
+                "I have trouble maintaining my energy and motivation over time.",
+                "I frequently feel like I need to hide my true self from others.",
+                "I tend to feel guilty about past decisions or actions.",
+                "I often feel like I'm not meeting others' expectations.",
+                "I have difficulty trusting that things will work out okay.",
+                "I tend to focus on what's wrong rather than what's right.",
+                "I often feel like I'm not in control of my own life.",
+                "I have trouble accepting that I can't please everyone.",
+                "I frequently feel overwhelmed by the expectations I place on myself."
+            ],
+            zh: [
+                "我經常擔心別人對我的看法。",
+                "我經常對自己的決定感到懷疑。",
+                "即使在必要時，我也傾向於避免衝突。",
+                "我經常覺得需要向別人證明自己。",
+                "我很難對別人的要求說「不」。",
+                "我過度擔心犯錯誤。",
+                "我經常覺得自己要為別人的情緒負責。",
+                "我傾向於拖延重要的任務。",
+                "我經常拿自己和別人比較。",
+                "我經常覺得自己不夠好。",
+                "我很難接受讚美。",
+                "我傾向於把情況想得很嚴重。",
+                "我經常因日常責任感到不知所措。",
+                "我很難表達自己的真實感受。",
+                "我傾向於把別人的需要放在自己之前。",
+                "當我為自己安排時間時，我經常感到內疚。",
+                "我很難相信自己的判斷。",
+                "我在社交場合經常感到焦慮。",
+                "我傾向於避免冒險。",
+                "我經常覺得自己需要完美。",
+                "我很難與別人設定界限。",
+                "我傾向於過度思考情況。",
+                "我經常覺得自己讓別人失望了。",
+                "當我需要幫助時，我很難開口求助。",
+                "我經常為無法控制的事情感到壓力。",
+                "我傾向於過度批評自己。",
+                "我經常覺得自己沒有發揮潛力。",
+                "我很難在不尋求認同的情況下做決定。",
+                "我傾向於避免困難的對話。",
+                "我經常覺得自己有責任解決別人的問題。",
+                "我很難享受成功，因為我擔心未來。",
+                "我經常覺得自己在假裝成別人。",
+                "我傾向於貶低自己的成就。",
+                "當我不忙碌或不具生產力時，我經常感到焦慮。",
+                "我很難放鬆和享受當下。",
+                "我傾向於更關注失敗而不是成功。",
+                "我經常覺得需要外在認同才能感到有價值。",
+                "我很難相信自己值得擁有好東西。",
+                "我經常覺得與別人相比，自己在生活中落後了。",
+                "我傾向於為了別人而犧牲自己的快樂。",
+                "我經常覺得自己在某些人面前如履薄冰。",
+                "我很難適當地表達憤怒或挫折。",
+                "我傾向於反覆思考過去的錯誤或尷尬時刻。",
+                "我經常覺得需要向別人為自己的選擇辯護。",
+                "我很難在別人面前表現脆弱或敞開心扉。",
+                "我經常覺得自己不夠聰明或不夠能幹。",
+                "我傾向於避免可能被評判的情況。",
+                "我經常覺得自己承擔著整個世界的重量。",
+                "我很難慶祝自己的成就。",
+                "我傾向於在大多數情況下期待最壞的結果。",
+                "我經常覺得自己不配得到愛或尊重。",
+                "我很難長期保持精力和動力。",
+                "我經常覺得需要向別人隱藏真實的自己。",
+                "我傾向於為過去的決定或行為感到內疚。",
+                "我經常覺得自己沒有達到別人的期望。",
+                "我很難相信事情會好轉。",
+                "我傾向於關注錯誤的地方而不是正確的地方。",
+                "我經常覺得自己無法控制自己的生活。",
+                "我很難接受自己無法取悅所有人。",
+                "我經常因為對自己的期望而感到不知所措。"
+            ]
+        };
+
+        // Progress Tracking
+        let currentProgress = 0;
+        const totalQuestions = 60;
+
+        function updateProgress() {
+            const progressNumber = document.getElementById('progressNumber');
+            const progressRing = document.getElementById('progressRing');
+            
+            const percentage = Math.round((currentProgress / totalQuestions) * 100);
+            
+            // Update text
+            progressNumber.textContent = currentProgress;
+            
+            // Update circular progress bar
+            const circumference = 2 * Math.PI * 25; // radius is 25
+            const offset = circumference - (percentage / 100) * circumference;
+            progressRing.style.strokeDasharray = circumference;
+            progressRing.style.strokeDashoffset = offset;
+        }
+
+        // Generate Questions
+        function generateQuestions() {
+            const container = document.getElementById('questionsContainer');
+            const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
+            const questionSet = questions[currentLang];
+            
+            container.innerHTML = '';
+            
+            questionSet.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-item';
+                questionDiv.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">${index + 1}</span>
+                        <p class="question-text">${question}</p>
+                    </div>
+                    <div class="rating-options">
+                        ${[1, 2, 3, 4, 5].map(value => `
+                            <label class="rating-option">
+                                <input type="radio" name="q${index}" value="${value}" required>
+                                <span class="rating-circle">
+                                    <span class="rating-number">${value}</span>
+                                </span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+
+            // Add event listeners for progress tracking
+            const radioButtons = container.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    updateProgressFromAnswers();
+                });
+            });
+        }
+
+        function updateProgressFromAnswers() {
+            const answeredQuestions = new Set();
+            const radioButtons = document.querySelectorAll('#questionsContainer input[type="radio"]:checked');
+            
+            radioButtons.forEach(radio => {
+                answeredQuestions.add(radio.name);
+            });
+            
+            currentProgress = answeredQuestions.size;
+            updateProgress();
+            
+            // Enable submit button when all questions are answered
+            const submitBtn = document.getElementById('submitBtn');
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentEmail = document.getElementById('studentEmail').value.trim();
+            
+            if (currentProgress === totalQuestions && studentName && studentEmail) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('ready');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('ready');
+            }
+        }
+
+        // Form Submission
+        document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentEmail = document.getElementById('studentEmail').value.trim();
+            const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
+            
+            // Validate inputs
+            if (!studentName) {
+                alert(currentLang === 'en' ? 'Please enter your name.' : '請輸入您的姓名。');
+                return;
+            }
+            
+            if (!studentEmail) {
+                alert(currentLang === 'en' ? 'Please enter your email address.' : '請輸入您的電子郵件地址。');
+                return;
+            }
+            
+            // Collect answers
+            const answers = [];
+            for (let i = 0; i < totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    answers.push(parseInt(selectedOption.value));
+                }
+            }
+            
+            // Calculate behavioral pattern scores
+            const typeScores = [0, 0, 0, 0, 0, 0]; // 6 personality types
+            
+            // Distribute questions among 6 types (10 questions each)
+            for (let i = 0; i < totalQuestions; i++) {
+                const typeIndex = Math.floor(i / 10);
+                typeScores[typeIndex] += answers[i];
+            }
+            
+            // Calculate percentages
+            const typePercentages = typeScores.map(score => Math.round((score / 50) * 100));
+            const totalScore = answers.reduce((sum, answer) => sum + answer, 0);
+            
+            // Determine dominant type
+            const maxScore = Math.max(...typePercentages);
+            const dominantTypeIndex = typePercentages.indexOf(maxScore);
+            
+            const typeNames = {
+                en: ['Pleaser', 'Worrier', 'Prover', 'Critic', 'Avoider', 'Martyr'],
+                zh: ['取悅者', '擔憂者', '證明者', '批評者', '迴避者', '殉道者']
+            };
+            
+            const resultCategory = typeNames[currentLang][dominantTypeIndex];
+            const resultDescription = currentLang === 'en' ? 
+                `Your dominant behavioral pattern is ${resultCategory} with ${maxScore}% tendency. This indicates your primary psychological approach to challenges and relationships.` :
+                `您的主要行為模式是${resultCategory}，傾向度為${maxScore}%。這顯示了您面對挑戰和人際關係的主要心理方式。`;
+            
+            // Prepare email content
+            const emailContent = `
+                Student Name: ${studentName}
+                Assessment: Personality Behavior Pattern Assessment
+                Completion Date: ${new Date().toLocaleString()}
+                
+                Results Summary:
+                Total Score: ${totalScore}/${totalQuestions * 5}
+                Dominant Type: ${resultCategory} (${maxScore}%)
+                
+                Type Breakdown:
+                ${typeNames.en.map((name, index) => `${name}: ${typePercentages[index]}%`).join('\n')}
+                
+                Description: ${resultDescription}
+                
+                Individual Question Responses:
+                ${answers.map((answer, index) => `Question ${index + 1}: ${answer}/5`).join('\n')}
+            `;
+            
+            try {
+                // Store results and redirect (skip email for now)
+                sessionStorage.setItem('assessmentResults', JSON.stringify({
+                    studentName,
+                    testType: 'Personality Behavior Pattern Assessment',
+                    totalScore,
+                    resultCategory,
+                    resultDescription,
+                    typePercentages,
+                    answers,
+                    completionDate: new Date().toLocaleString()
+                }));
+                
+                // Try to send email but don't block on failure
+                try {
+                    // Create type breakdown for personality assessment
+                    const typeNames = currentLang === 'en' ? 
+                        ['Pleaser', 'Worrier', 'Prover', 'Critic', 'Avoider', 'Martyr'] :
+                        ['取悅者', '擔憂者', '證明者', '批評者', '迴避者', '殉道者'];
+                    
+                    const breakdownHtml = `
+                        <div style="background-color: white; border-radius: 8px; padding: 16px; margin-top: 16px;">
+                            <h5 style="margin: 0 0 12px 0; color: #667eea; font-size: 14px;">${currentLang === 'en' ? 'Personality Type Breakdown:' : '人格類型分析：'}</h5>
+                            ${typePercentages.map((percentage, index) => {
+                                const isTop = percentage === maxScore;
+                                return `<div style="display: flex; justify-content: space-between; margin-bottom: 8px; padding: 6px 12px; background-color: ${isTop ? '#f0f4ff' : '#f8f9fa'}; border-radius: 4px; ${isTop ? 'border-left: 3px solid #667eea;' : ''}">
+                                    <span style="font-size: 13px; color: #555;">${typeNames[index]}${isTop ? ' ⭐' : ''}</span>
+                                    <span style="font-weight: ${isTop ? 'bold' : 'normal'}; color: ${isTop ? '#667eea' : '#666'}; font-size: 13px;">${percentage}%</span>
+                                </div>`;
+                            }).join('')}
+                        </div>
+                    `;
+                    
+                    // Prepare multilingual email content
+                    const emailData = {
+                        student_name: studentName,
+                        student_email: studentEmail || document.getElementById('studentEmail').value,
+                        test_type: currentLang === 'en' ? "Personality Behavior Pattern Assessment" : "人格行為模式評估",
+                        completion_date: new Date().toLocaleDateString(),
+                        message: emailContent,
+                        
+                        // Header content
+                        header_emoji: "🧠",
+                        header_title: currentLang === 'en' ? "Personality Results" : "人格評估結果",
+                        
+                        // Greeting and messages
+                        greeting: currentLang === 'en' ? "Hello" : "您好",
+                        completion_message: currentLang === 'en' ? 
+                            "Thank you for completing the Personality Behavior Pattern Assessment! Your detailed personality analysis is ready." :
+                            "感謝您完成人格行為模式評估！您的詳細人格分析已準備好。",
+                            
+                        // Results section
+                        results_title: currentLang === 'en' ? "Your Personality Profile" : "您的人格檔案",
+                        main_score: `${maxScore}%`,
+                        score_label: currentLang === 'en' ? "Dominant Pattern Strength" : "主要模式強度",
+                        result_category: resultCategory,
+                        result_description: resultDescription,
+                        breakdown_section: breakdownHtml,
+                        
+                        // Insights
+                        insights_title: currentLang === 'en' ? "Understanding Your Results" : "理解您的結果",
+                        insights_text: currentLang === 'en' ? 
+                            "Your personality profile reveals patterns in how you think, feel, and behave. Use these insights to understand your natural tendencies and identify opportunities for personal growth." :
+                            "您的人格檔案揭示了您思考、感受和行為的模式。請利用這些洞察來了解您的自然傾向並識別個人成長的機會。",
+                            
+                        // Footer content
+                        detailed_title: currentLang === 'en' ? "Complete Assessment Data" : "完整評估數據",
+                        completion_date_label: currentLang === 'en' ? "Assessment completed on:" : "評估完成日期：",
+                        questions_text: currentLang === 'en' ? "Questions about your results?" : "對結果有疑問？",
+                        disclaimer_text: currentLang === 'en' ? 
+                            "This personality assessment is designed for educational and self-development purposes. Results should be used as a guide for personal reflection and growth." :
+                            "此人格評估用於教育和自我發展目的。結果應作為個人反思和成長的指南。",
+                        footer_brand: currentLang === 'en' ? "Personality Assessment Team" : "人格評估測試團隊",
+                        footer_subtitle: currentLang === 'en' ? "Professional Psychological Evaluation" : "專業心理評估"
+                    };
+                    
+                    // Send to user
+                    await emailjs.send("service_2mndbrx", "template_z0l98oa", emailData);
+                    
+                    // Send to admin (always in English for admin)
+                    const adminEmailData = { ...emailData };
+                    adminEmailData.student_email = "felicco@gmail.com";
+                    adminEmailData.test_type = "Personality Behavior Pattern Assessment";
+                    adminEmailData.header_title = "Personality Results";
+                    adminEmailData.greeting = "Hello";
+                    adminEmailData.completion_message = `${studentName} has completed the Personality Behavior Pattern Assessment. Results summary attached.`;
+                    
+                    await emailjs.send("service_2mndbrx", "template_z0l98oa", adminEmailData);
+                    
+                    console.log('Emails sent successfully');
+                } catch (emailError) {
+                    console.log('Email failed but continuing to results:', emailError);
+                }
+                
+                window.location.href = 'results.html';
+                
+            } catch (error) {
+                console.error('Error processing assessment:', error);
+                alert(currentLang === 'en' ? 
+                    'There was an error processing your results. Please try again.' :
+                    '處理您的結果時發生錯誤，請重試。');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguageToggle();
+            generateQuestions();
+            updateProgress();
+            
+            // Add input listeners for real-time validation
+            document.getElementById('studentName').addEventListener('input', updateProgressFromAnswers);
+            document.getElementById('studentEmail').addEventListener('input', updateProgressFromAnswers);
+        });
+    </script>
+
+    <!-- Floating Progress Indicator - positioned above scale reference -->
+    <div id="progressIndicator" class="floating-progress floating-progress-stacked">
+        <div class="progress-circle">
+            <svg class="progress-ring" width="60" height="60">
+                <circle class="progress-ring-background" cx="30" cy="30" r="25"></circle>
+                <circle class="progress-ring-progress" cx="30" cy="30" r="25" id="progressRing"></circle>
+            </svg>
+            <div class="progress-text">
+                <span id="progressNumber">0</span>
+                <span class="progress-total">/60</span>
+            </div>
+        </div>
+        <div class="progress-label-text">
+            <span class="text-en">Progress</span>
+            <span class="text-zh" style="display: none;">進度</span>
+        </div>
+    </div>
+</body>
+</html> 

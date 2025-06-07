@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Journey Insights | 您的旅程洞察</title>
+    <meta name="description" content="Beautiful insights from your self-discovery journey. Celebrate your authentic self and unique way of being.">
+    <link rel="stylesheet" href="../assets/css/change-assessment.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+</head>
+<body>
+    <div class="assessment-container">
+        <!-- Navigation Header -->
+        <nav class="nav-header">
+            <a href="../index.html" class="logo">
+                <span class="text-en">Explore Yourself</span>
+                <span class="text-zh" style="display: none;">探索自我</span>
+            </a>
+            <div class="nav-meta">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                </div>
+                <a href="../index.html" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-en">Back to Home</span>
+                    <span class="text-zh" style="display: none;">回到首頁</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Results Header -->
+        <header class="results-header">
+            <div class="header-content">
+                <div class="results-icon">✨</div>
+                <h1 class="results-title">
+                    <span class="text-en">Assessment Results</span>
+                    <span class="text-zh" style="display: none;">評估結果</span>
+                </h1>
+                <p class="completion-message">
+                    <span class="text-en">Assessment completed successfully. Your personalized analysis is ready.</span>
+                    <span class="text-zh" style="display: none;">評估已成功完成。您的個人化分析已準備就緒。</span>
+                </p>
+            </div>
+        </header>
+
+        <div class="results-container">
+            <!-- Student Information -->
+            <section class="student-info-card">
+                <h2>
+                    <span class="text-en">Assessment Details</span>
+                    <span class="text-zh" style="display: none;">評估詳情</span>
+                </h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">
+                            <span class="text-en">Name:</span>
+                            <span class="text-zh" style="display: none;">姓名：</span>
+                        </span>
+                        <span id="studentName" class="info-value"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">
+                            <span class="text-en">Assessment Type:</span>
+                            <span class="text-zh" style="display: none;">評估類型：</span>
+                        </span>
+                        <span id="testType" class="info-value"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">
+                            <span class="text-en">Completion Time:</span>
+                            <span class="text-zh" style="display: none;">完成時間：</span>
+                        </span>
+                        <span id="completionTime" class="info-value"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">
+                            <span class="text-en">Total Score:</span>
+                            <span class="text-zh" style="display: none;">總分：</span>
+                        </span>
+                        <span id="totalScore" class="info-value score-highlight"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Results -->
+            <section class="main-results-card">
+                <h2>
+                    <span class="text-en">Assessment Results</span>
+                    <span class="text-zh" style="display: none;">評估結果</span>
+                </h2>
+                <div id="mainTendency" class="main-tendency-box">
+                    <!-- Main tendency will be populated by JavaScript -->
+                </div>
+                <div id="interpretation" class="interpretation-box">
+                    <!-- Interpretation will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Detailed Results for Behavior Assessment -->
+            <section class="detailed-results" id="behaviorResults" style="display: none;">
+                <h2>
+                    <span class="text-en">🌈 Your Communication Patterns</span>
+                    <span class="text-zh" style="display: none;">🌈 您的溝通模式</span>
+                </h2>
+                <div class="types-grid">
+                    <div class="type-result" data-type="0">
+                        <h3>
+                            <span class="text-en">Pleaser</span>
+                            <span class="text-zh" style="display: none;">取悅者</span>
+                        </h3>
+                        <div class="percentage-bar">
+                            <div class="percentage-fill" id="percent-0"></div>
+                            <span class="percentage-text" id="text-0"></span>
+                        </div>
+                        <p class="type-description">
+                            <span class="text-en">Core fear: Not being liked | Seeks approval and acceptance through pleasing others</span>
+                            <span class="text-zh" style="display: none;">核心恐懼：不被喜歡 | 透過討好他人來獲得認可和接納</span>
+                        </p>
+                    </div>
+
+                    <div class="type-result" data-type="1">
+                        <h3>
+                            <span class="text-en">Worrier</span>
+                            <span class="text-zh" style="display: none;">擁憂者</span>
+                        </h3>
+                        <div class="percentage-bar">
+                            <div class="percentage-fill" id="percent-1"></div>
+                            <span class="percentage-text" id="text-1"></span>
+                        </div>
+                        <p class="type-description">
+                            <span class="text-en">Core fear: Uncertainty | Controls risk through over-analysis and preparation</span>
+                            <span class="text-zh" style="display: none;">核心恐懼：不確定性 | 透過過度分析和準備來控制風險</span>
+                        </p>
+                    </div>
+
+                    <div class="type-result" data-type="2">
+                        <h3>
+                            <span class="text-en">Prover</span>
+                            <span class="text-zh" style="display: none;">證明者</span>
+                        </h3>
+                        <div class="percentage-bar">
+                            <div class="percentage-fill" id="percent-2"></div>
+                            <span class="percentage-text" id="text-2"></span>
+                        </div>
+                        <p class="type-description">
+                            <span class="text-en">Core fear: Being seen as incompetent | Builds self-worth through achievements</span>
+                            <span class="text-zh" style="display: none;">核心恐懼：被視為無能 | 透過成就和表現來建立自我價值</span>
+                        </p>
+                    </div>
+
+                    <div class="type-result" data-type="3">
+                        <h3>
+                            <span class="text-en">Critic</span>
+                            <span class="text-zh" style="display: none;">批評者</span>
+                        </h3>
+                        <div class="percentage-bar">
+                            <div class="percentage-fill" id="percent-3"></div>
+                            <span class="percentage-text" id="text-3"></span>
+                        </div>
+                        <p class="type-description">
+                            <span class="text-en">Core fear: Imperfection | Avoids errors and failure through high standards</span>
+                            <span class="text-zh" style="display: none;">核心恐懼：不完美 | 透過高標準來避免錯誤和失敗</span>
+                        </p>
+                    </div>
+
+                    <div class="type-result" data-type="4">
+                        <h3>
+                            <span class="text-en">Avoider</span>
+                            <span class="text-zh" style="display: none;">迴避者</span>
+                        </h3>
+                        <div class="percentage-bar">
+                            <div class="percentage-fill" id="percent-4"></div>
+                            <span class="percentage-text" id="text-4"></span>
+                        </div>
+                        <p class="type-description">
+                            <span class="text-en">Core fear: Conflict and failure | Avoids discomfort and responsibility through escape</span>
+                            <span class="text-zh" style="display: none;">核心恐懼：衝突和失敗 | 透過逃避來避免不適和責任</span>
+                        </p>
+                    </div>
+
+                    <div class="type-result" data-type="5">
+                        <h3>
+                            <span class="text-en">Martyr</span>
+                            <span class="text-zh" style="display: none;">殉道者</span>
+                        </h3>
+                        <div class="percentage-bar">
+                            <div class="percentage-fill" id="percent-5"></div>
+                            <span class="percentage-text" id="text-5"></span>
+                        </div>
+                        <p class="type-description">
+                            <span class="text-en">Core fear: Selfishness | Gains moral superiority through self-sacrifice</span>
+                            <span class="text-zh" style="display: none;">核心恐懷：自私 | 透過犧牲自己來獲得道德優越感</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Color Legend -->
+                <div class="legend">
+                    <h3>
+                        <span class="text-en">📋 Color Coding Legend</span>
+                        <span class="text-zh" style="display: none;">📋 色彩編碼說明</span>
+                    </h3>
+                    <div class="legend-items">
+                        <div class="legend-item high">
+                            <span class="text-en">🔴 70%+ Strong tendency (needs focus)</span>
+                            <span class="text-zh" style="display: none;">🔴 70%+ 強烈傾向 (需重點關注)</span>
+                        </div>
+                        <div class="legend-item obvious">
+                            <span class="text-en">🟠 60-69% Obvious tendency (needs guidance)</span>
+                            <span class="text-zh" style="display: none;">🟠 60-69% 明顯傾向 (需適當指導)</span>
+                        </div>
+                        <div class="legend-item moderate">
+                            <span class="text-en">🟡 50-59% Moderate tendency (continue monitoring)</span>
+                            <span class="text-zh" style="display: none;">🟡 50-59% 中等傾向 (持續觀察)</span>
+                        </div>
+                        <div class="legend-item low">
+                            <span class="text-en">🟢 40-49% Lower tendency (performing well)</span>
+                            <span class="text-zh" style="display: none;">🟢 40-49% 較低傾向 (表現良好)</span>
+                        </div>
+                        <div class="legend-item very-low">
+                            <span class="text-en">⚪ <40% Very low tendency (balanced state)</span>
+                            <span class="text-zh" style="display: none;">⚪ <40% 很低傾向 (平衡狀態)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="actions-section">
+                <div class="action-buttons">
+                    <button id="downloadBtn" class="action-btn download-btn">
+                        <span class="btn-icon">💖</span>
+                        <span class="text-en">Save My Insights</span>
+                        <span class="text-zh" style="display: none;">保存我的洞察</span>
+                    </button>
+                    <button id="retakeBtn" class="action-btn retake-btn">
+                        <span class="btn-icon">🌱</span>
+                        <span class="text-en">Explore Another Journey</span>
+                        <span class="text-zh" style="display: none;">探索另一個旅程</span>
+                    </button>
+                    <button id="homeBtn" class="action-btn home-btn">
+                        <span class="btn-icon">🏡</span>
+                        <span class="text-en">Return to Home</span>
+                        <span class="text-zh" style="display: none;">回到首頁</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Detailed Scores (Hidden by default) -->
+        <div class="detailed-scores" id="detailedScores" style="display: none;">
+            <h3>
+                <span class="text-en">✨ Your Journey Details</span>
+                <span class="text-zh" style="display: none;">✨ 您的旅程詳情</span>
+            </h3>
+            <div id="scoresTable">
+                <!-- Detailed scores will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language Toggle Functionality
+        function initializeLanguageToggle() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const enElements = document.querySelectorAll('.text-en');
+            const zhElements = document.querySelectorAll('.text-zh');
+            
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.dataset.lang;
+                    
+                    // Update button states
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Toggle language visibility
+                    if (lang === 'en') {
+                        enElements.forEach(el => el.style.display = '');
+                        zhElements.forEach(el => el.style.display = 'none');
+                        document.documentElement.lang = 'en';
+                    } else {
+                        enElements.forEach(el => el.style.display = 'none');
+                        zhElements.forEach(el => el.style.display = '');
+                        document.documentElement.lang = 'zh-TW';
+                    }
+                });
+            });
+        }
+
+        // Load and Display Results
+        function loadResults() {
+            const resultsData = sessionStorage.getItem('assessmentResults');
+            
+            if (!resultsData) {
+                // No results found, redirect to home
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            const results = JSON.parse(resultsData);
+            
+            // Populate basic information
+            document.getElementById('studentName').textContent = results.studentName;
+            document.getElementById('testType').textContent = results.testType;
+            document.getElementById('completionTime').textContent = results.completionDate;
+            document.getElementById('totalScore').textContent = results.totalScore;
+            
+            // Display main result
+            const mainTendency = document.getElementById('mainTendency');
+            const interpretation = document.getElementById('interpretation');
+            
+            mainTendency.innerHTML = `
+                <div class="tendency-category">${results.resultCategory}</div>
+                <div class="tendency-score">${results.averageScore || results.totalScore}</div>
+            `;
+            
+            interpretation.innerHTML = `
+                <p class="interpretation-text">${results.resultDescription}</p>
+            `;
+            
+            // Show behavior assessment specific results if it's that type
+            if (results.testType && (results.testType.includes('Behavior') || results.testType.includes('Personality'))) {
+                document.getElementById('behaviorResults').style.display = 'block';
+                // Additional behavior-specific result processing would go here
+            }
+        }
+
+        // Download Results
+        function downloadResults() {
+            const resultsData = sessionStorage.getItem('assessmentResults');
+            if (!resultsData) return;
+            
+            const results = JSON.parse(resultsData);
+            const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
+            
+            const content = currentLang === 'en' ? 
+                `Your Beautiful Journey Insights
+                
+Name: ${results.studentName}
+Journey Type: ${results.testType}
+Completion Date: ${results.completionDate}
+Journey Score: ${results.totalScore}
+Your Authentic Style: ${results.resultCategory}
+
+Beautiful Description:
+${results.resultDescription}
+
+Your Journey Responses:
+${results.answers ? results.answers.map((answer, index) => `Reflection ${index + 1}: ${answer}`).join('\n') : 'Not available'}
+
+✨ Thank you for this beautiful exploration of your authentic self!
+` :
+                `您美麗的旅程洞察
+                
+姓名：${results.studentName}
+旅程類型：${results.testType}
+完成日期：${results.completionDate}
+旅程分數：${results.totalScore}
+您的真實風格：${results.resultCategory}
+
+美麗的描述：
+${results.resultDescription}
+
+您的旅程回應：
+${results.answers ? results.answers.map((answer, index) => `反思 ${index + 1}：${answer}`).join('\n') : '無法獲得'}
+
+✨ 感謝您美麗地探索真實的自我！
+`;
+            
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const filename = `${results.studentName}_${results.testType.replace(/\s+/g, '_')}_Results.txt`;
+            
+            // Create download link
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguageToggle();
+            loadResults();
+            
+            // Action button events
+            document.getElementById('downloadBtn').addEventListener('click', downloadResults);
+            
+            document.getElementById('retakeBtn').addEventListener('click', function() {
+                const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
+                const confirmMsg = currentLang === 'en' ? 
+                    'Would you like to explore another beautiful journey of self-discovery?' : 
+                    '您想要探索另一個美麗的自我發現之旅嗎？';
+                
+                if (confirm(confirmMsg)) {
+                    sessionStorage.removeItem('assessmentResults');
+                    window.location.href = '../index.html';
+                }
+            });
+            
+            document.getElementById('homeBtn').addEventListener('click', function() {
+                window.location.href = '../index.html';
+            });
+        });
+    </script>
+</body>
+</html> 

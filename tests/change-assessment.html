@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Change Ability Assessment | 個人變革能力評估</title>
+    <meta name="description" content="Professional assessment to evaluate your change management capabilities and adaptability skills in organizational environments.">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/change-assessment.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    <div class="assessment-container">
+        <!-- Navigation Header -->
+        <nav class="nav-header">
+            <a href="../index.html" class="logo">
+                <span class="text-en">Explore Yourself</span>
+                <span class="text-zh" style="display: none;">探索自我</span>
+            </a>
+            <div class="nav-meta">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                </div>
+                <a href="../index.html" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-en">Back to Home</span>
+                    <span class="text-zh" style="display: none;">回到首頁</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Assessment Header -->
+        <header class="assessment-header">
+            <div class="header-content">
+                <div class="assessment-icon">🔄</div>
+                <h1 class="assessment-title">
+                    <span class="text-en">Change Ability Assessment</span>
+                    <span class="text-zh" style="display: none;">變革能力評估</span>
+                </h1>
+                <p class="assessment-subtitle">
+                    <span class="text-en">Professional evaluation of your change management capabilities and organizational adaptability</span>
+                    <span class="text-zh" style="display: none;">專業評估您的變革管理能力和組織適應性</span>
+                </p>
+                
+                <div class="assessment-info">
+                    <div class="info-stat">
+                        <span class="stat-number">20</span>
+                        <span class="stat-label">
+                            <span class="text-en">Questions</span>
+                            <span class="text-zh" style="display: none;">題目</span>
+                        </span>
+                    </div>
+                    <div class="info-stat">
+                        <span class="stat-number">5-8</span>
+                        <span class="stat-label">
+                            <span class="text-en">Minutes</span>
+                            <span class="text-zh" style="display: none;">分鐘</span>
+                        </span>
+                    </div>
+                    <div class="info-stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">
+                            <span class="text-en">Ranges</span>
+                            <span class="text-zh" style="display: none;">範圍</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Instructions Panel -->
+        <section class="instructions-panel">
+            <div class="instructions-content">
+                <h3 class="instructions-title">
+                    <span class="text-en">Assessment Instructions</span>
+                    <span class="text-zh" style="display: none;">評估說明</span>
+                </h3>
+                
+                <div class="instructions-text">
+                    <div class="text-en">
+                        <p>This assessment evaluates your change management capabilities and adaptability in professional environments. Rate each statement based on how consistently it describes your behavior and approach to organizational change.</p>
+                    </div>
+                    <div class="text-zh" style="display: none;">
+                        <p>此評估評估您在專業環境中的變革管理能力和適應性。請根據每個陳述對您的行為和組織變革方法的一致性描述程度進行評分。</p>
+                    </div>
+                </div>
+                
+
+
+                <div class="important-notes">
+                    <div class="note-item">
+                        <span class="note-icon">💡</span>
+                        <span class="text-en">Answer based on your honest self-reflection</span>
+                        <span class="text-zh" style="display: none;">請根據誠實的自我反思作答</span>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-icon">🎯</span>
+                        <span class="text-en">Focus on consistent patterns, not isolated incidents</span>
+                        <span class="text-zh" style="display: none;">請關注一致的模式，而非個別事件</span>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-icon">📧</span>
+                        <span class="text-en">Results will be emailed upon completion</span>
+                        <span class="text-zh" style="display: none;">完成後結果將以電子郵件發送</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Form -->
+        <main class="assessment-main">
+            <form id="assessmentForm" class="assessment-form">
+                <!-- Name Input Section -->
+                <div class="name-input-section">
+                    <div class="input-group">
+                        <label for="studentName" class="input-label">
+                            <span class="label-icon">👤</span>
+                            <span class="text-en">Your Full Name</span>
+                            <span class="text-zh" style="display: none;">您的真實姓名</span>
+                            <span class="required-mark">*</span>
+                        </label>
+                        <input type="text" id="studentName" name="studentName" required 
+                               class="name-input"
+                               placeholder="Enter your full name / 請輸入您的真實姓名">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="studentEmail" class="input-label">
+                            <span class="label-icon">📧</span>
+                            <span class="text-en">Your Email Address</span>
+                            <span class="text-zh" style="display: none;">您的電子郵件地址</span>
+                            <span class="required-mark">*</span>
+                        </label>
+                        <input type="email" id="studentEmail" name="studentEmail" required 
+                               class="name-input"
+                               placeholder="Enter your email / 請輸入您的電子郵件">
+                    </div>
+                </div>
+
+
+
+                <!-- Questions Container -->
+                <div id="questionsContainer" class="questions-container">
+                    <!-- Questions will be populated by JavaScript -->
+                </div>
+
+                <!-- Submit Section -->
+                <div class="submit-section">
+                    <button type="submit" id="submitBtn" class="submit-button" disabled>
+                        <span class="button-content">
+                            <span class="button-icon">📊</span>
+                            <span class="button-text">
+                                <span class="text-en">Complete Assessment</span>
+                                <span class="text-zh" style="display: none;">完成評估</span>
+                            </span>
+                        </span>
+                        <div class="button-shine"></div>
+                    </button>
+                    
+                    <p class="submit-note">
+                        <span class="text-en">Your results will be processed and emailed to you instantly</span>
+                        <span class="text-zh" style="display: none;">您的結果將立即處理並通過電子郵件發送給您</span>
+                    </p>
+                </div>
+            </form>
+        </main>
+
+        </div>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init("I2KqoGsE81K29GmFC");
+
+        // Language Toggle Functionality with inheritance from homepage
+        function initializeLanguageToggle() {
+            // Get language preference from localStorage (set by homepage)
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const enElements = document.querySelectorAll('.text-en');
+            const zhElements = document.querySelectorAll('.text-zh');
+            
+            // Apply saved language immediately
+            if (savedLang === 'zh') {
+                langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === 'zh'));
+                enElements.forEach(el => el.style.display = 'none');
+                zhElements.forEach(el => el.style.display = '');
+                document.documentElement.lang = 'zh-TW';
+                updatePlaceholders('zh');
+            } else {
+                langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === 'en'));
+                enElements.forEach(el => el.style.display = '');
+                zhElements.forEach(el => el.style.display = 'none');
+                document.documentElement.lang = 'en';
+                updatePlaceholders('en');
+            }
+            
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.dataset.lang;
+                    
+                    // Update button states
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Save language preference
+                    localStorage.setItem('preferredLanguage', lang);
+                    
+                    // Toggle language visibility
+                    if (lang === 'en') {
+                        enElements.forEach(el => el.style.display = '');
+                        zhElements.forEach(el => el.style.display = 'none');
+                        document.documentElement.lang = 'en';
+                        updatePlaceholders('en');
+                    } else {
+                        enElements.forEach(el => el.style.display = 'none');
+                        zhElements.forEach(el => el.style.display = '');
+                        document.documentElement.lang = 'zh-TW';
+                        updatePlaceholders('zh');
+                    }
+                    
+                    // Regenerate questions in the new language
+                    generateQuestions();
+                });
+            });
+        }
+
+        function updatePlaceholders(lang) {
+            const nameInput = document.getElementById('studentName');
+            const emailInput = document.getElementById('studentEmail');
+            if (lang === 'en') {
+                nameInput.placeholder = 'Enter your full name';
+                emailInput.placeholder = 'Enter your email address';
+            } else {
+                nameInput.placeholder = '請輸入您的真實姓名';
+                emailInput.placeholder = '請輸入您的電子郵件';
+            }
+        }
+
+        // Assessment Questions Data - Exact from PDF
+        const questions = {
+            en: [
+                "I communicate with my team frequently. I try to share information in a clear and transparent manner, even when the topic is uncomfortable.",
+                "I believe that once people understand and are comfortable with change that training is not always needed.",
+                "I encourage experimentation, learning about new practices and technologies, and encourage my team to commit to continuous improvement.",
+                "When planning for change I consider our culture and values along with other changes already underway in the organization.",
+                "When faced with unexpected changes I expect people to \"just get on with it\".",
+                "I believe that if employees are already unhappy or dissatisfied with a process or system, change is more likely to be successful.",
+                "I expect that other teams and individuals will ask if they need clarification or guidance regarding change.",
+                "When planning for change I solicit and consider the ideas of those who will be impacted.",
+                "I seek out data or information that I need to understand the purpose of and personally support change initiatives.",
+                "I consider things like the impact on people and organizational structure when planning a change project.",
+                "I believe that if key individuals in the company communicate that change is necessary others will readily get on board and implement the change.",
+                "I am able to inspire others to change by communicating a compelling vision.",
+                "I am not comfortable making plans and decisions when there is risk or uncertainty.",
+                "When implementing change I set regular and small milestones that will keep the team engaged and motivated as we make progress.",
+                "When things are changing, I make sure to be visible and available to my team, acting as a role model for the desired change.",
+                "When I encounter resistance or obstacles to change I reach out to my peers for advice and guidance on how to best to respond.",
+                "Change management is the job of a change management professional, not my job.",
+                "I can consider an idea from a variety of different points of view.",
+                "I build and use internal (often informal) networks to share information, gather information, and test ideas.",
+                "I believe that I am accountable for effective change management on my team."
+            ],
+            zh: [
+                "我經常與我的團隊溝通。我儘量以清晰透明的方式分享資訊，即使話題令人不快。",
+                "我相信，一旦人們理解並適應了變革，就不一定需要培訓了。",
+                "我鼓勵嘗試、學習新的做法和技術，並鼓勵我的團隊致力於不斷改進。",
+                "在制定變革計畫時，我會考慮我們的文化和價值觀，以及組織內已在進行的其他變革。",
+                "面對突如其來的變化，我希望人們能夠\"迎難而上\"。",
+                "我相信，如果員工已經對某個流程或系統感到不滿意或不滿，變革就更有可能取得成功。",
+                "我希望其他團隊和個人會詢問他們是否需要有關變革的說明或指導。",
+                "在規劃變革時，我會徵求並考慮那些將受到影響的人的想法。",
+                "我尋找所需的資料或資訊，以瞭解變革舉措的目的，並親自支援變革舉措。",
+                "在規劃變革專案時，我會考慮對人員和組織結構的影響。",
+                "我相信，如果公司的關鍵人物傳達出變革的必要性，其他人也會欣然接受並實施變革。",
+                "我能夠通過傳達令人信服的願景來激勵他人做出改變。",
+                "在有風險或不確定的情況下，我不太願意做計畫和決定。",
+                "在實施變革時，我會設定定期的小里程碑，讓團隊在取得進展的同時保持參與和動力。",
+                "當事情發生變化時，我一定會讓我的團隊看到並參與其中，為所期望的變化做出表率。",
+                "當我遇到變革的阻力或障礙時，我會向我的同伴尋求建議和指導，瞭解如何以最佳方式應對。",
+                "變革管理是變革管理專家的工作，而不是我的工作。",
+                "我能從各種不同的角度考慮一個想法。",
+                "我建立並使用內部（通常是非正式的）網路來共用資訊、收集資訊和測試想法。",
+                "我相信我有責任對我的團隊進行有效的變革管理。"
+            ]
+        };
+
+        // Items that are reverse scored (from PDF analysis)
+        const reverseScoreItems = [2, 5, 7, 11, 13, 17]; // Questions 2, 5, 7, 11, 13, 17 are reverse scored
+
+        // Progress Tracking
+        let currentProgress = 0;
+        const totalQuestions = 20;
+
+        function updateProgress() {
+            const progressNumber = document.getElementById('progressNumber');
+            const progressRing = document.getElementById('progressRing');
+            
+            const percentage = Math.round((currentProgress / totalQuestions) * 100);
+            
+            // Update text
+            progressNumber.textContent = currentProgress;
+            
+            // Update circular progress bar
+            const circumference = 2 * Math.PI * 25; // radius is 25
+            const offset = circumference - (percentage / 100) * circumference;
+            progressRing.style.strokeDasharray = circumference;
+            progressRing.style.strokeDashoffset = offset;
+        }
+
+        // Generate Questions
+        function generateQuestions() {
+            const container = document.getElementById('questionsContainer');
+            const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
+            const questionSet = questions[currentLang];
+            
+            container.innerHTML = '';
+            
+            questionSet.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-item';
+                questionDiv.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">${index + 1}</span>
+                        <p class="question-text">${question}</p>
+                    </div>
+                    <div class="rating-options">
+                        ${[
+                            { value: 1, label: currentLang === 'en' ? 'Not at all like me' : '完全不像我' },
+                            { value: 2, label: currentLang === 'en' ? 'A little like me' : '有點像我' },
+                            { value: 3, label: currentLang === 'en' ? 'Somewhat like me' : '有些像我' },
+                            { value: 4, label: currentLang === 'en' ? 'Quite like me' : '很像我' },
+                            { value: 5, label: currentLang === 'en' ? 'Very much like me' : '非常像我' }
+                        ].map(option => `
+                            <label class="rating-option">
+                                <input type="radio" name="q${index}" value="${option.value}" required>
+                                <span class="rating-circle">
+                                    <span class="rating-text">${option.label}</span>
+                                </span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+
+            // Add event listeners for progress tracking
+            const radioButtons = container.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    updateProgressFromAnswers();
+                });
+            });
+        }
+
+        function updateProgressFromAnswers() {
+            const answeredQuestions = new Set();
+            const radioButtons = document.querySelectorAll('#questionsContainer input[type="radio"]:checked');
+            
+            radioButtons.forEach(radio => {
+                answeredQuestions.add(radio.name);
+            });
+            
+            currentProgress = answeredQuestions.size;
+            updateProgress();
+            
+            // Enable submit button when all questions are answered
+            const submitBtn = document.getElementById('submitBtn');
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentEmail = document.getElementById('studentEmail').value.trim();
+            
+            if (currentProgress === totalQuestions && studentName && studentEmail) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('ready');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('ready');
+            }
+        }
+
+        // Form Submission
+        document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentEmail = document.getElementById('studentEmail').value.trim();
+            const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
+            
+            // Validate inputs
+            if (!studentName) {
+                alert(currentLang === 'en' ? 'Please enter your name.' : '請輸入您的姓名。');
+                return;
+            }
+            
+            if (!studentEmail) {
+                alert(currentLang === 'en' ? 'Please enter your email address.' : '請輸入您的電子郵件地址。');
+                return;
+            }
+            
+            // Collect answers with proper scoring
+            const answers = [];
+            const rawAnswers = [];
+            for (let i = 0; i < totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    const rawValue = parseInt(selectedOption.value);
+                    rawAnswers.push(rawValue);
+                    
+                    // Apply reverse scoring for specific questions (1-indexed in PDF, 0-indexed in code)
+                    if (reverseScoreItems.includes(i + 1)) {
+                        // Reverse score: 1→5, 2→4, 3→3, 4→2, 5→1
+                        answers.push(6 - rawValue);
+                    } else {
+                        answers.push(rawValue);
+                    }
+                }
+            }
+            
+            // Calculate results
+            const totalScore = answers.reduce((sum, answer) => sum + answer, 0);
+            const averageScore = (totalScore / totalQuestions).toFixed(2);
+            
+            // Determine result category based on score ranges from assessment document
+            let resultCategory, resultDescription;
+            if (totalScore >= 81) {
+                resultCategory = currentLang === 'en' ? 'Change Champion (81-100)' : '變革冠軍 (81-100)';
+                resultDescription = currentLang === 'en' ? 
+                    'Change is easy for you. You\'re confident, flexible, and optimistic, though at times you can appear undisciplined and impulsive as you rapidly introduce or adopt change. You have a good understanding of what makes for successful change and how to manage and implement change. You prefer a fast rate of change, which can be intimidating to others. You readily step up to new challenges and enjoy risk and uncertainty. Be careful you don\'t get carried away by your self-confidence and the appeal of the new, ensure that you build upon past successes and critically assess whether change is actually needed.' :
+                    '變革對你來說很容易。你自信、靈活、樂觀，儘管有時你在快速引入或採用變革時會顯得缺乏紀律和衝動。你非常瞭解什麼是成功的變革，以及如何管理和實施變革。你喜歡快速的變革，這可能會讓其他人望而生畏。你樂於迎接新的挑戰，享受風險和不確定性。要注意不要被你的自信和新事物的吸引力衝昏頭腦，確保在過去成功的基礎上再接再厲，並認真評估是否真的需要變革。';
+            } else if (totalScore >= 47) {
+                resultCategory = currentLang === 'en' ? 'Change Adapter (47-80)' : '變革適應者 (47-80)';
+                resultDescription = currentLang === 'en' ? 
+                    'You tend to manage change with a thought-out plan and are good at managing routine, expected changes, but the unexpected can still throw you off balance. Even the best-laid plans can fall apart and you may notice that your enthusiasm waxes and wanes over time. You can tend to be more focused on pragmatic results rather than structure, be aware that you may need to revise your change tactics along the way. You may be seen by others as able to see both sides of an argument and to influence key stakeholders who may or may not support the planned change. Using a process and change roadmap that allows you to manage the key phases of change will increase your effectiveness. As you develop your skills in this area, your ability to cope with the unexpected—and to help others cope—will continue to grow.' :
+                    '你傾向於用深思熟慮的計畫來應對變化，並且善於處理常規的、預期的變化，但意外還是會讓你失去平衡。即使是最周密的計畫也可能會失敗，你可能會注意到自己的熱情會隨著時間的推移而減退。你可能會更注重實際結果而不是結構，要注意你可能需要修正你的變革策略。在他人眼中，你可能能夠看到爭論的正反兩面，並能影響那些可能支持或不支持變革計畫的關鍵利益相關者。使用流程和變革路線圖，讓你能夠管理變革的關鍵階段，這將提高你的效率。隨著你在這方面技能的提高，你應對突發事件的能力-以及幫助他人應對突發事件的能力-也將不斷增強。';
+            } else {
+                resultCategory = currentLang === 'en' ? 'Change Developer (20-46)' : '變革發展者 (20-46)';
+                resultDescription = currentLang === 'en' ? 
+                    'You are deliberate, disciplined and organized, and do an excellent job of making sure procedures are followed. Your approach to change tends to be to react to it, not to meet it head-on. Although you may feel ready for change, you aren\'t as mentally prepared as you could be and prefer an element of predictability. Perhaps you aren\'t convinced it\'s really necessary to change at this point. To be successful in leading change you need to focus on articulating the vision and excitement of the end goal to your team and other key stakeholders. Taking control of your reactions may help you minimize the stress and confusion change can bring to you and others.' :
+                    '你深思熟慮、嚴謹有序，在確保程式得到遵守方面做得非常出色。你對待變革的態度往往是反應式，而不是迎難而上。雖然你可能覺得自己已經做好了改變的準備，但你的心理準備並不充分，你更喜歡可預見性。也許你還不相信此時此刻真的有必要進行變革。要想成功領導變革，你需要集中精力向團隊和其他主要利益相關者闡述最終目標的願景和興奮點。控制自己的反應可以幫助你最大限度地減少變革給你和他人帶來的壓力和困惑。';
+            }
+            
+            // Prepare email content
+            const emailContent = `
+                Student Name: ${studentName}
+                Assessment: Personal Change Ability Assessment
+                Completion Date: ${new Date().toLocaleString()}
+                
+                Results Summary:
+                Total Score: ${totalScore}/${totalQuestions * 5}
+                Average Score: ${averageScore}/5.0
+                Result Category: ${resultCategory}
+                
+                Description: ${resultDescription}
+                
+                Individual Question Responses (Raw → Scored):
+                ${rawAnswers.map((rawAnswer, index) => {
+                    const isReversed = reverseScoreItems.includes(index + 1);
+                    const scoredAnswer = answers[index];
+                    return `Question ${index + 1}: ${rawAnswer}/5${isReversed ? ` → ${scoredAnswer}/5 (reversed)` : ` (${scoredAnswer}/5)`}`;
+                }).join('\n')}
+            `;
+            
+            try {
+                // Store results and redirect (skip email for now)
+                sessionStorage.setItem('assessmentResults', JSON.stringify({
+                    studentName,
+                    testType: 'Change Ability Assessment',
+                    totalScore,
+                    averageScore,
+                    resultCategory,
+                    resultDescription,
+                    answers: answers,        // scored answers
+                    rawAnswers: rawAnswers,  // raw answers before reverse scoring
+                    reverseItems: reverseScoreItems,
+                    completionDate: new Date().toLocaleString()
+                }));
+                
+                // Try to send email but don't block on failure
+                try {
+                    // Prepare multilingual email content
+                    const emailData = {
+                        student_name: studentName,
+                        student_email: studentEmail || document.getElementById('studentEmail').value,
+                        test_type: currentLang === 'en' ? "Personal Change Ability Assessment" : "個人變革能力自我評估",
+                        completion_date: new Date().toLocaleDateString(),
+                        message: emailContent,
+                        
+                        // Header content
+                        header_emoji: "🔄",
+                        header_title: currentLang === 'en' ? "Assessment Complete" : "評估完成",
+                        
+                        // Greeting and messages
+                        greeting: currentLang === 'en' ? "Hello" : "您好",
+                        completion_message: currentLang === 'en' ? 
+                            "Thank you for completing the Personal Change Ability Assessment! Your comprehensive results are ready." :
+                            "感謝您完成個人變革能力自我評估！您的詳細結果已準備好。",
+                            
+                        // Results section
+                        results_title: currentLang === 'en' ? "Your Assessment Results" : "您的評估結果",
+                        main_score: `${averageScore}/5.0`,
+                        score_label: currentLang === 'en' ? "Average Score" : "平均分數",
+                        result_category: resultCategory,
+                        result_description: resultDescription,
+                        
+                        // Insights
+                        insights_title: currentLang === 'en' ? "Key Insights" : "重要洞察",
+                        insights_text: currentLang === 'en' ? 
+                            "These results reflect your current readiness and skills for managing change. Use these insights to identify areas for development and leverage your strengths." :
+                            "這些結果反映了您目前管理變革的準備度和技能。請利用這些洞察來識別發展領域並發揮您的優勢。",
+                            
+                        // Footer content
+                        detailed_title: currentLang === 'en' ? "Detailed Breakdown" : "詳細分析",
+                        completion_date_label: currentLang === 'en' ? "Assessment completed on:" : "評估完成日期：",
+                        questions_text: currentLang === 'en' ? "Questions about your results?" : "對結果有疑問？",
+                        disclaimer_text: currentLang === 'en' ? 
+                            "This assessment is designed for educational and self-development purposes. Results should be used as a guide for personal reflection and growth." :
+                            "此評估用於教育和自我發展目的。結果應作為個人反思和成長的指南。",
+                        footer_brand: currentLang === 'en' ? "Personality Assessment Team" : "人格評估測試團隊",
+                        footer_subtitle: currentLang === 'en' ? "Professional Psychological Evaluation" : "專業心理評估",
+                        breakdown_section: "" // Empty for change assessment
+                    };
+                    
+                    // Send to user
+                    await emailjs.send("service_2mndbrx", "template_z0l98oa", emailData);
+                    
+                    // Send to admin (always in English for admin)
+                    const adminEmailData = { ...emailData };
+                    adminEmailData.student_email = "felicco@gmail.com";
+                    adminEmailData.test_type = "Personal Change Ability Assessment";
+                    adminEmailData.header_title = "Assessment Complete";
+                    adminEmailData.greeting = "Hello";
+                    adminEmailData.completion_message = `${studentName} has completed the Personal Change Ability Assessment. Results summary attached.`;
+                    
+                    await emailjs.send("service_2mndbrx", "template_z0l98oa", adminEmailData);
+                    
+                    console.log('Emails sent successfully');
+                } catch (emailError) {
+                    console.log('Email failed but continuing to results:', emailError);
+                }
+                
+                window.location.href = 'results.html';
+                
+            } catch (error) {
+                console.error('Error processing assessment:', error);
+                alert(currentLang === 'en' ? 
+                    'There was an error processing your results. Please try again.' :
+                    '處理您的結果時發生錯誤，請重試。');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguageToggle();
+            generateQuestions();
+            updateProgress();
+            
+            // Add input listeners for real-time validation
+            document.getElementById('studentName').addEventListener('input', updateProgressFromAnswers);
+            document.getElementById('studentEmail').addEventListener('input', updateProgressFromAnswers);
+        });
+    </script>
+
+    <!-- Floating Progress Indicator -->
+    <div id="progressIndicator" class="floating-progress">
+        <div class="progress-circle">
+            <svg class="progress-ring" width="60" height="60">
+                <circle class="progress-ring-background" cx="30" cy="30" r="25"></circle>
+                <circle class="progress-ring-progress" cx="30" cy="30" r="25" id="progressRing"></circle>
+            </svg>
+            <div class="progress-text">
+                <span id="progressNumber">0</span>
+                <span class="progress-total">/20</span>
+            </div>
+        </div>
+        <div class="progress-label-text">
+            <span class="text-en">Progress</span>
+            <span class="text-zh" style="display: none;">進度</span>
+        </div>
+    </div>
+</body>
+</html> 
