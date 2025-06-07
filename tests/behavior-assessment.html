@@ -401,36 +401,31 @@
             questionSet.forEach((question, index) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.className = 'question-item';
+                const labels = currentLang === 'en' ? 
+                    ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'] :
+                    ['從不', '很少', '有時', '經常', '總是'];
+
                 questionDiv.innerHTML = `
                     <div class="question-header">
                         <span class="question-number">${index + 1}</span>
                         <p class="question-text">${question}</p>
                     </div>
-                    <div class="rating-slider-container">
-                        <div class="slider-labels">
-                            <span class="slider-label">${currentLang === 'en' ? 'Never' : '從不'}</span>
-                            <span class="slider-label">${currentLang === 'en' ? 'Rarely' : '很少'}</span>
-                            <span class="slider-label">${currentLang === 'en' ? 'Sometimes' : '有時'}</span>
-                            <span class="slider-label">${currentLang === 'en' ? 'Often' : '經常'}</span>
-                            <span class="slider-label">${currentLang === 'en' ? 'Always' : '總是'}</span>
-                        </div>
-                        <div class="slider-wrapper">
-                            <input type="range" 
-                                   class="rating-slider" 
-                                   name="q${index}" 
-                                   min="1" 
-                                   max="5" 
-                                   step="1" 
-                                   required
-                                   data-question="${index}"
-                                   data-touched="false">
-                            <div class="slider-dots">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            ${labels.map((label, i) => `
+                                <div class="rating-option">
+                                    <input type="radio" 
+                                           id="q${index}_${i + 1}" 
+                                           name="q${index}" 
+                                           value="${i + 1}" 
+                                           required
+                                           data-question="${index}">
+                                    <label for="q${index}_${i + 1}" class="rating-label">
+                                        <span class="rating-number">${i + 1}</span>
+                                        <span class="rating-text">${label}</span>
+                                    </label>
+                                </div>
+                            `).join('')}
                         </div>
                     </div>
                 `;
@@ -438,12 +433,9 @@
             });
 
             // Add event listeners for progress tracking
-            const sliders = container.querySelectorAll('.rating-slider');
-            sliders.forEach(slider => {
-                slider.addEventListener('input', () => {
-                    // Mark as touched when user interacts
-                    slider.setAttribute('data-touched', 'true');
-                    slider.classList.add('touched');
+            const radioButtons = container.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', () => {
                     updateProgressFromAnswers();
                 });
             });
@@ -451,14 +443,15 @@
 
         function updateProgressFromAnswers() {
             const answeredQuestions = new Set();
-            const sliders = document.querySelectorAll('#questionsContainer .rating-slider');
             
-            sliders.forEach(slider => {
-                // Only count if the user has actually touched the slider
-                if (slider.getAttribute('data-touched') === 'true') {
-                    answeredQuestions.add(slider.name);
+            // Count answered questions by checking if any radio button is selected for each question
+            for (let i = 0; i < totalQuestions; i++) {
+                const questionRadios = document.querySelectorAll(`input[name="q${i}"]`);
+                const isAnswered = Array.from(questionRadios).some(radio => radio.checked);
+                if (isAnswered) {
+                    answeredQuestions.add(`q${i}`);
                 }
-            });
+            }
             
             currentProgress = answeredQuestions.size;
             updateProgress();
@@ -499,9 +492,9 @@
             // Collect answers
             const answers = [];
             for (let i = 0; i < totalQuestions; i++) {
-                const slider = document.querySelector(`input[name="q${i}"]`);
-                if (slider && slider.getAttribute('data-touched') === 'true') {
-                    answers.push(parseInt(slider.value));
+                const selectedRadio = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedRadio) {
+                    answers.push(parseInt(selectedRadio.value));
                 }
             }
             
