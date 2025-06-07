@@ -934,40 +934,10 @@ body {
         text-align: center;
     }
 
-    /* Mobile floating progress */
-    .floating-progress {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px;
-    }
-    
-    /* Stacked mobile positioning */
+    /* Hide floating progress on mobile to avoid clipping issues */
+    .floating-progress,
     .floating-progress-stacked {
-        bottom: 120px; /* Position well above mobile scale reference */
-    }
-    
-    .progress-ring {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .progress-ring-background,
-    .progress-ring-progress {
-        cx: 25;
-        cy: 25;
-        r: 20;
-    }
-    
-    .progress-text {
-        font-size: 12px;
-    }
-    
-    .progress-total {
-        font-size: 10px;
-    }
-    
-    .progress-label-text {
-        font-size: 11px;
+        display: none;
     }
 }
 
@@ -996,77 +966,16 @@ body {
         font-size: 1rem;
     }
     
-    /* Extra small mobile adjustments */
-    .floating-progress {
-        padding: 10px;
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .floating-progress-stacked {
-        bottom: 105px; /* Adjust for smaller screens */
-    }
-    
     .scale-reference {
         padding: 8px 12px;
-        font-size: 10px;
-    }
-    
-    .progress-ring {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .progress-ring-background,
-    .progress-ring-progress {
-        cx: 22.5;
-        cy: 22.5;
-        r: 18;
-    }
-    
-    .progress-text {
-        font-size: 11px;
-    }
-    
-    .progress-label-text {
         font-size: 10px;
     }
 }
 
 /* Landscape mobile adjustments */
 @media (max-height: 500px) and (orientation: landscape) {
-    .floating-progress {
-        bottom: 10px;
-        right: 10px;
-        padding: 8px;
-    }
-    
-    .floating-progress-stacked {
-        bottom: 70px; /* Tighter spacing in landscape */
-    }
-    
     .scale-reference {
         padding: 6px 10px;
-        font-size: 9px;
-    }
-    
-    .progress-ring {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .progress-ring-background,
-    .progress-ring-progress {
-        cx: 20;
-        cy: 20;
-        r: 16;
-    }
-    
-    .progress-text {
-        font-size: 10px;
-    }
-    
-    .progress-label-text {
         font-size: 9px;
     }
 }
