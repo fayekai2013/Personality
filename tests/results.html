@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Journey Insights | 您的旅程洞察</title>
-    <meta name="description" content="Beautiful insights from your self-discovery journey. Celebrate your authentic self and unique way of being.">
+    <title>Assessment Results | 評估結果</title>
+    <meta name="description" content="View your personality assessment results and analysis.">
     <link rel="stylesheet" href="../assets/css/change-assessment.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
@@ -207,13 +207,13 @@
                 <div class="action-buttons">
                     <button id="downloadBtn" class="action-btn download-btn">
                         <span class="btn-icon">💖</span>
-                        <span class="text-en">Save My Insights</span>
-                        <span class="text-zh" style="display: none;">保存我的洞察</span>
+                        <span class="text-en">Download Results</span>
+                        <span class="text-zh" style="display: none;">下載結果</span>
                     </button>
                     <button id="retakeBtn" class="action-btn retake-btn">
                         <span class="btn-icon">🌱</span>
-                        <span class="text-en">Explore Another Journey</span>
-                        <span class="text-zh" style="display: none;">探索另一個旅程</span>
+                        <span class="text-en">Take Another Assessment</span>
+                        <span class="text-zh" style="display: none;">進行另一個評估</span>
                     </button>
                     <button id="homeBtn" class="action-btn home-btn">
                         <span class="btn-icon">🏡</span>
@@ -227,8 +227,8 @@
         <!-- Detailed Scores (Hidden by default) -->
         <div class="detailed-scores" id="detailedScores" style="display: none;">
             <h3>
-                <span class="text-en">✨ Your Journey Details</span>
-                <span class="text-zh" style="display: none;">✨ 您的旅程詳情</span>
+                <span class="text-en">Detailed Scores</span>
+                <span class="text-zh" style="display: none;">詳細分數</span>
             </h3>
             <div id="scoresTable">
                 <!-- Detailed scores will be populated by JavaScript -->
@@ -331,37 +331,33 @@
             const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
             
             const content = currentLang === 'en' ? 
-                `Your Beautiful Journey Insights
+                `Assessment Results
                 
 Name: ${results.studentName}
-Journey Type: ${results.testType}
+Assessment Type: ${results.testType}
 Completion Date: ${results.completionDate}
-Journey Score: ${results.totalScore}
-Your Authentic Style: ${results.resultCategory}
+Total Score: ${results.totalScore}
+Result Category: ${results.resultCategory}
 
-Beautiful Description:
+Description:
 ${results.resultDescription}
 
-Your Journey Responses:
-${results.answers ? results.answers.map((answer, index) => `Reflection ${index + 1}: ${answer}`).join('\n') : 'Not available'}
-
-✨ Thank you for this beautiful exploration of your authentic self!
+Your Responses:
+${results.answers ? results.answers.map((answer, index) => `Question ${index + 1}: ${answer}`).join('\n') : 'Not available'}
 ` :
-                `您美麗的旅程洞察
+                `評估結果
                 
 姓名：${results.studentName}
-旅程類型：${results.testType}
+評估類型：${results.testType}
 完成日期：${results.completionDate}
-旅程分數：${results.totalScore}
-您的真實風格：${results.resultCategory}
+總分：${results.totalScore}
+結果類別：${results.resultCategory}
 
-美麗的描述：
+描述：
 ${results.resultDescription}
 
-您的旅程回應：
-${results.answers ? results.answers.map((answer, index) => `反思 ${index + 1}：${answer}`).join('\n') : '無法獲得'}
-
-✨ 感謝您美麗地探索真實的自我！
+您的回答：
+${results.answers ? results.answers.map((answer, index) => `問題 ${index + 1}：${answer}`).join('\n') : '無法獲得'}
 `;
             
             const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
@@ -389,8 +385,8 @@ ${results.answers ? results.answers.map((answer, index) => `反思 ${index + 1}�
             document.getElementById('retakeBtn').addEventListener('click', function() {
                 const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
                 const confirmMsg = currentLang === 'en' ? 
-                    'Would you like to explore another beautiful journey of self-discovery?' : 
-                    '您想要探索另一個美麗的自我發現之旅嗎？';
+                    'Would you like to take another assessment?' : 
+                    '您想要進行另一個評估嗎？';
                 
                 if (confirm(confirmMsg)) {
                     sessionStorage.removeItem('assessmentResults');
